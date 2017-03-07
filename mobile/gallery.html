@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>    
+    <head>
+        <title>Classy Furnish a Interior and Furniture Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+        <!-- for-mobile-apps -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="Classy Furnish Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+              Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+            function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <!-- //for-mobile-apps -->
+        <link href="./css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="./css/style.css" rel="stylesheet" type="text/css" media="all" />
+        <link rel="stylesheet" href="./css/flexslider.css" type="text/css" media="screen" property="" />
+        <!-- js -->
+        <script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="./js/move-top.js"></script>
+        <script type="text/javascript" src="./js/easing.js"></script>
+        <script defer src="./js/jquery.flexslider.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $(".scroll").click(function(event) {
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+                });
+            });
+        </script>
+    </head>
+
+    <body>        
+        <script>
+
+            $(function() {
+                $('.adsense_btn_close').click(function() {
+                    $(this).closest('.adsense_fixed').css('display', 'none');
+                });
+
+                $('.adsense_btn_info').click(function() {
+                    if ($('.adsense_info_content').is(':visible')) {
+                        $('.adsense_info_content').css('display', 'none');
+                    } else {
+                        $('.adsense_info_content').css('display', 'block');
+                    }
+                });
+
+            });
+
+        </script>
+    <body>
+        <div class="header_top">
+            <div class="header">
+                <div class="wthree_menu">
+                    <nav>
+                        <ul>
+                            <li class="active">
+                                <a href="index-2.html"><i class="glyphicon glyphicon-home" aria-hidden="true"></i><span>Home</span></a>
+                            </li>
+                            <li>
+                                <a href="about.html"><i class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></i><span>About</span></a>
+                            </li>
+                            <li>
+                                <a href="short-codes.html"><i class="glyphicon glyphicon-text-size" aria-hidden="true"></i><span>Short Codes</span></a>
+                            </li>
+                            <li>
+                                <a href="gallery.html"><i class="glyphicon glyphicon-picture" aria-hidden="true"></i><span>Gallery</span></a>
+                            </li>
+                            <li>
+                                <a href="mail.html"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><span>Mail Us</span></a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="menu-icon"><span></span></div>
+                </div>
+                <div class="agile_logo">
+                    <h1><a href="index-2.html"><span>C</span><i>Furnish</i></a></h1>
+                </div>
+                <div class="w3ls_search">
+                    <form action="#" method="post">
+                        <input type="text" name="Name" placeholder="Type to search..." required="">
+                        <input type="submit" value=" ">
+                    </form>
+                </div>
+                <div class="agileits_mail_phone">
+                    <ul>
+                        <li><a href="mailto:info@example.com">info@example.com</a><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></li>
+                        <li>(+000) 1234 423 23<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <script>
+                (function($) {
+                    $(".menu-icon").on("click", function() {
+                        $(this).toggleClass("open");
+                        $(".header").toggleClass("nav-open");
+                        $("nav ul li").toggleClass("animate");
+                    });
+
+                })(jQuery);
+            </script>
+        </div>
+
+        <div class="banner">
+            <section class="slider">
+                <div class="flexslider">
+                    <ul class="slides">
+                        <li>
+                            <div class="w3l_banner">
+                                <div class="w3_banner_info">
+                                    <h3>sint occaecat cupidatat non proident <span>sunt in culpa qui officia</span></h3>
+                                    <p>Nullam aliquam eget erat vel lacinia. 
+                                        Mauris porttitor velit ac odio laoreet, sit amet tempor justo luctus.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="w3l_banner1">
+                                <div class="w3_banner_info">
+                                    <h3>Aliquam nec arcu consequat <span>tincidunt dolorsunt officia</span></h3>
+                                    <p>Nullam aliquam eget erat vel lacinia. 
+                                        Mauris porttitor velit ac odio laoreet, sit amet tempor justo luctus.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="w3l_banner2">
+                                <div class="w3_banner_info">
+                                    <h3>Nullam viverra pulvinar<span>Nullam elementum nisl tempor</span></h3>
+                                    <p>Nullam aliquam eget erat vel lacinia. 
+                                        Mauris porttitor velit ac odio laoreet, sit amet tempor justo luctus.</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>                        
+            <script type="text/javascript">
+                $(window).load(function() {
+                    $('.flexslider').flexslider({
+                        animation: "slide",
+                        directionNav: false,
+                        start: function(slider) {
+                            $('body').removeClass('loading');
+                        }
+                    });
+                });
+            </script>
+        </div>
+        <div class="banner">
+            <section class="slider">
+                <div id="mensajes">
+                    <ul class="slides">
+                        <li>
+                            <div class="agileits_services_grid">
+                                <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                                <h5>Global Service</h5>
+                                <p>Vivamus malesuada pellentesque nunc id condimentum.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="agileits_services_grid">
+                                <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                                <h5>Global Service</h5>
+                                <p>Vivamus malesuada pellentesque nunc id condimentum.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="agileits_services_grid">
+                                <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                                <h5>Global Service</h5>
+                                <p>Vivamus malesuada pellentesque nunc id condimentum.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <script type="text/javascript">
+                $(window).load(function() {
+                    $('#mensajes').flexslider({
+                        animation: "slide",
+                        direction: "vertical",
+                        directionNav: false,
+                        start: function(slider) {
+                            $('body').removeClass('loading');
+                        }
+                    });
+                });
+            </script>
+        </div>
+
+
+        <div class="footer">
+            <div class="container">
+                <div class="w3ls_footer_grid">
+                    <div class="col-md-6 w3ls_footer_grid_left">
+                        <div class="w3ls_footer_grid_left1">
+                            <h2>Follow Us</h2>
+                            <div class="w3ls_footer_grid_left1_pos">
+                                <ul>
+                                    <li><a href="#" class="facebook">Facebook</a></li>
+                                    <li><a href="#" class="twitter">Twitter</a></li>
+                                    <li><a href="#" class="google">Google+</a></li>
+                                    <li><a href="#" class="instagram">Instagram</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 w3ls_footer_grid1_left">
+                    <p>&copy; 2016 Classy Furnish. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+                </div>
+                <div class="col-md-6 w3ls_footer_grid1_right">
+                    <ul>
+                        <li>
+                            <a href="about.html">About</a>
+                        </li>
+                        <li>
+                            <a href="short-codes.html">Short Codes</a>
+                        </li>
+                        <li>
+                            <a href="gallery.html">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="mail.html">Mail Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </body>
+</html>
