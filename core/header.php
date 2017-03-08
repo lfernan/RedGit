@@ -20,11 +20,11 @@
         <script defer src="./js/jquery.flexslider.js"></script>
         <script defer src="./js/index.js"></script>
     </head>
-    <body>        
+    <body>  
         <div class="header_top">
             <div class="header">
                 <div class="wthree_menu">
-                    <nav>
+                    <nav class="nav-west">              
                         <ul>
                             <li class="active">
                                 <a href="index-2.html"><i class="glyphicon glyphicon-home" aria-hidden="true"></i><span>Home</span></a>
