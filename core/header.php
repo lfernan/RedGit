@@ -10,21 +10,22 @@
         <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
             function hideURLbar(){ window.scrollTo(0,1); } </script>
         <!-- //for-mobile-apps -->
-        <link href="./css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="./css/style.css" rel="stylesheet" type="text/css" media="all" />
-        <link rel="stylesheet" href="./css/flexslider.css" type="text/css" media="screen" property="" />
+        <link href="<?php echo CSS_PATH; ?>bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="<?php echo CSS_PATH; ?>style.css" rel="stylesheet" type="text/css" media="all" />
+        <link rel="stylesheet" href="<?php echo CSS_PATH; ?>flexslider.css" type="text/css" media="screen" property="" />
         <!-- js -->
-        <script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
-        <script type="text/javascript" src="./js/move-top.js"></script>
-        <script type="text/javascript" src="./js/easing.js"></script>
-        <script defer src="./js/jquery.flexslider.js"></script>
-        <script defer src="./js/index.js"></script>
+        <script type="text/javascript" src="<?php echo JS_PATH; ?>jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="<?php echo JS_PATH; ?>move-top.js"></script>
+        <script type="text/javascript" src="<?php echo JS_PATH; ?>easing.js"></script>
+        <script defer src="<?php echo JS_PATH; ?>jquery.flexslider.js"></script>
+        <script defer src="<?php echo JS_PATH; ?>jquery.filterizr.js"></script>
+        <script defer src="<?php echo JS_PATH; ?>index.js"></script>
     </head>
     <body>  
         <div class="header_top">
             <div class="header">
                 <div class="wthree_menu">
-                    <nav class="nav-west">              
+                    <nav>              
                         <ul>
                             <li class="active">
                                 <a href="index-2.html"><i class="glyphicon glyphicon-home" aria-hidden="true"></i><span>Home</span></a>
@@ -38,7 +39,8 @@
                             <li>
                                 <?php
                                 if (MOBILE) {
-                                    echo '<a href="#" onclick="loadPage(2)"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><span>Galeria</span></a>';
+                                    //echo '<a href="#" onclick="loadPage(2)"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><span>Galeria</span></a>';
+                                    echo '<a href="view/mobile/gallery.php"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><span>Galeria</span></a>';
                                 } else if (DESKTOP) {
                                     echo '<a href="mail.html"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><span>Galeria</span></a>';
                                 }

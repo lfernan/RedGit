@@ -4,7 +4,9 @@ session_start();
 date_default_timezone_set('America/Caracas');
 
 #Constantes de la APP
-define('HTML_DIR', 'html/');
+define('JS_PATH', 'http://'.$_SERVER["HTTP_HOST"].'/redgit/js/');
+define('CSS_PATH', 'http://'.$_SERVER["HTTP_HOST"].'/redgit/css/');
+define('IMG_PATH', 'http://'.$_SERVER["HTTP_HOST"].'/redgit/images/');
 define('APP_TITLE', 'Red');
 define('APP_COPY', 'Copyright &copy; ' . date('Y', time()) . ' Red Software.');
 define('APP_URL', 'http://localhost/Red/');

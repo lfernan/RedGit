@@ -17,7 +17,8 @@ $(function () {
             $('.adsense_info_content').css('display', 'block');
         }
     });
-
+    
+    $('.filtr-container').filterizr();    
 });
 
 (function ($) {
