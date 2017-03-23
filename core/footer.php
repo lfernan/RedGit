@@ -6,5 +6,12 @@
 <script src="js/color-thief.min.js"></script>
 <script src="js/galleryExpand.js"></script>
 <script src="js/init.js"></script>
+<script>
+$(document).ready(function(){
+    $('.carousel.carousel-slider').carousel({fullWidth: true});
+    var $toastContent = $('<span>I am toast content</span>');
+    Materialize.toast($toastContent, 5000);
+  });     
+</script>
 </body>
 </html>

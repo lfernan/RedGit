@@ -53,7 +53,7 @@
             <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter polygon">
                 <div class="gallery-curve-wrapper">
                     <a class="gallery-cover gray">
-                        <img class="responsive-img" src="http://placehold.it/350x250" alt="placeholder">
+                        <img class="responsive-img" src="images/bigbang1.png" alt="placeholder">
                     </a>
                     <div class="gallery-header">
                         <span>Aquamarine</span>
@@ -63,12 +63,19 @@
                             <h3>Aquamarine</h3>
                             <span class="price">$29.99</span>
                         </div>
+                        <div class="card-panel hoverable">
+                            <div class="container">
+                                <video class="responsive-video" controls>
+                                    <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>                        
                         <p class="description">
-                            Literally venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice. Listicle butcher thundercats, taxidermy pitchfork next level roof party crucifix narwhal kinfolk you probably haven't heard of them portland small batch.</p>
+                            Aca esta la descripcion venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice. Listicle butcher thundercats, taxidermy pitchfork next level roof party crucifix narwhal kinfolk you probably haven't heard of them portland small batch.</p>
                         <p class="description">
                             Ea salvia adipisicing vegan man bun. Flexitarian cupidatat skateboard flannel. Drinking vinegar marfa you probably haven't heard of them consequat post-ironic, shabby chic williamsburg raclette vaporware readymade selfies brunch. Venmo selvage biodiesel marfa. Tbh literally 3 wolf moon, proident elit raclette chambray consequat edison bulb four loko accusamus. Semiotics godard eiusmod, ex esse air plant quinoa vaporware selfies keytar. Actually yuccie ennui flannel single-origin coffee, williamsburg cardigan banjo forage pug distillery tumblr hexagon vinyl occaecat.</p>
 
-                        <div class="carousel-wrapper">
+                        <!--div class="carousel-wrapper">
                             <div class="carousel">
                                 <a class="carousel-item" href="#one!"><img src="http://placehold.it/300x200"></a>
                                 <a class="carousel-item" href="#two!"><img src="http://placehold.it/300x200"></a>
@@ -76,6 +83,13 @@
                                 <a class="carousel-item" href="#four!"><img src="http://placehold.it/300x200"></a>
                                 <a class="carousel-item" href="#five!"><img src="http://placehold.it/300x200"></a>
                             </div>
+                        </div-->
+                          <div class="carousel">
+                            <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/1"></a>
+                            <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/2"></a>
+                            <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/3"></a>
+                            <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/4"></a>
+                            <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/5"></a>
                         </div>
                     </div>
                     <div class="gallery-action">
@@ -86,7 +100,7 @@
             <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter polygon">
                 <div class="gallery-curve-wrapper">
                     <a class="gallery-cover gray">
-                        <img src="http://placehold.it/350x300" alt="placeholder">
+                        <img src="images/bigbang2.jpg" alt="placeholder">
                     </a>
                     <div class="gallery-header">
                         <span>Sun</span>
@@ -119,7 +133,7 @@
             <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter bigbang">
                 <div class="gallery-curve-wrapper">
                     <a class="gallery-cover gray">
-                        <img class="responsive-img" src="http://placehold.it/350x280" alt="placeholder">
+                        <img class="responsive-img" src="images/bigbang3.jpg" alt="placeholder">
                     </a>
                     <div class="gallery-header">
                         <span>Big Bang 1</span>
@@ -152,7 +166,7 @@
             <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter polygon">
                 <div class="gallery-curve-wrapper">
                     <a class="gallery-cover gray">
-                        <img src="http://placehold.it/350x320" alt="placeholder">
+                        <img src="images/geometric-aquamarine.jpg" alt="placeholder">
                     </a>
                     <div class="gallery-header">
                         <span>Maze</span>
@@ -185,7 +199,7 @@
             <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter polygon">
                 <div class="gallery-curve-wrapper">
                     <a class="gallery-cover gray">
-                        <img src="http://placehold.it/350x260" alt="placeholder">
+                        <img src="images/geometric-cave.jpg" alt="placeholder">
                     </a>
                     <div class="gallery-header">
                         <span>Ice</span>
@@ -218,7 +232,7 @@
             <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter polygon">
                 <div class="gallery-curve-wrapper">
                     <a class="gallery-cover gray">
-                        <img src="http://placehold.it/350x290" alt="placeholder">
+                        <img src="images/geometric-grapefruit.jpg" alt="placeholder">
                     </a>
                     <div class="gallery-header">
                         <span>Cave</span>
@@ -251,7 +265,7 @@
             <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter polygon">
                 <div class="gallery-curve-wrapper">
                     <a class="gallery-cover gray">
-                        <img src="http://placehold.it/350x240" alt="placeholder">
+                        <img src="images/geometric-ice.jpg" alt="placeholder">
                     </a>
                     <div class="gallery-header">
                         <span>Grapefruit</span>
@@ -286,7 +300,7 @@
             <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter bigbang">
                 <div class="gallery-curve-wrapper">
                     <a class="gallery-cover gray">
-                        <img class="responsive-img" src="http://placehold.it/350x300" alt="placeholder">
+                        <img class="responsive-img" src="images/geometric-maze.jpg" alt="placeholder">
                     </a>
                     <div class="gallery-header">
                         <span>Big Bang 2</span>
@@ -319,7 +333,7 @@
             <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter bigbang">
                 <div class="gallery-curve-wrapper">
                     <a class="gallery-cover gray">
-                        <img class="responsive-img" src="http://placehold.it/350x280" alt="placeholder">
+                        <img class="responsive-img" src="images/geometric-sun.jpg" alt="placeholder">
                     </a>
                     <div class="gallery-header">
                         <span>Big Bang 3</span>
@@ -353,7 +367,7 @@
             <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter sacred">
                 <div class="gallery-curve-wrapper">
                     <a class="gallery-cover gray">
-                        <img class="responsive-img" src="http://placehold.it/350x250" alt="placeholder">
+                        <img class="responsive-img" src="images/sacredgeometry1.jpg" alt="placeholder">
                     </a>
                     <div class="gallery-header">
                         <span>Circle</span>
@@ -387,7 +401,7 @@
             <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter sacred">
                 <div class="gallery-curve-wrapper">
                     <a class="gallery-cover gray">
-                        <img class="responsive-img" src="http://placehold.it/350x260" alt="placeholder">
+                        <img class="responsive-img" src="images/sacredgeometry2.jpg" alt="placeholder">
                     </a>
                     <div class="gallery-header">
                         <span>Triangle</span>
@@ -421,7 +435,7 @@
             <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter sacred">
                 <div class="gallery-curve-wrapper">
                     <a class="gallery-cover gray">
-                        <img class="responsive-img" src="http://placehold.it/350x300" alt="placeholder">
+                        <img class="responsive-img" src="images/sacredgeometry3.jpg" alt="placeholder">
                     </a>
                     <div class="gallery-header">
                         <span>Hexagon</span>
