@@ -18,16 +18,16 @@ CREATE TABLE `users` (
 `attention` varchar(50) default NULL,
 `schedules` varchar(50) default NULL,
 `smoking` tinyint(1) NOT NULL default '0',
-`published` tinyint(1) NOT NULL default '0'
+`published` tinyint(1) NOT NULL default '0',
  PRIMARY KEY  (`id`)
-) TYPE=MyISAM AUTO_INCREMENT=1;
+)ENGINE=MyISAM;
 
 DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
   `id` int(10) NOT NULL auto_increment,
   `name` varchar(50) default NULL,
   PRIMARY KEY  (`id`)
-) TYPE=MyISAM AUTO_INCREMENT=1;
+)ENGINE=MyISAM;
 
 DROP TABLE IF EXISTS `chat`;
 CREATE TABLE `chat` (
@@ -35,47 +35,50 @@ CREATE TABLE `chat` (
   `user_from_id` int(10) NOT NULL,
   `user_to_id` int(10) NOT NULL,
   `description` varchar(250) default NULL,
-  `date_hour` date default NULL
+  `date_hour` date default NULL,
+   `check` int default NULL,
   PRIMARY KEY  (`id`)
-) TYPE=MyISAM AUTO_INCREMENT=1;
+)ENGINE=MyISAM;
 
 DROP TABLE IF EXISTS `message`;
 CREATE TABLE `message` (
   `id` int(10) NOT NULL auto_increment,
-  `user_id` int(10) NOT NULL,
+  `user_from_id` int(10) NOT NULL,
+  `user_to_id` int(10) NOT NULL,
   `description` varchar(250) default NULL,
-  `date_hour` date default NULL
+  `date_hour` date default NULL,
+  `check` int default NULL,
   PRIMARY KEY  (`id`)
-) TYPE=MyISAM AUTO_INCREMENT= 1;
+)ENGINE=MyISAM;
 
 DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
   `id` int(10) NOT NULL auto_increment,
   `name` varchar(50) default NULL,
   PRIMARY KEY  (`id`)
-) TYPE=MyISAM AUTO_INCREMENT=1;
+)ENGINE=MyISAM;
 
 DROP TABLE IF EXISTS `service`;
 CREATE TABLE `service` (
   `id` int(10) NOT NULL auto_increment,
   `name` varchar(50) default NULL,
   PRIMARY KEY  (`id`)
-) TYPE=MyISAM AUTO_INCREMENT=1;
+)ENGINE=MyISAM;
 
 DROP TABLE IF EXISTS `usercategory`;
 CREATE TABLE `usercategory` (
   `id` int(10) NOT NULL auto_increment,
   `user_id` int(10) NOT NULL,
-  `category_id` int(10) NOT NULL
+  `category_id` int(10) NOT NULL,
   PRIMARY KEY  (`id`)
-) TYPE=MyISAM AUTO_INCREMENT=1;
+)ENGINE=MyISAM;
 
 DROP TABLE IF EXISTS `userservice`;
 CREATE TABLE `userservice` (
   `id` int(10) NOT NULL auto_increment,
   `service_id` int(10) NOT NULL,
   `user_id` int(10) NOT NULL,
-  `price` float(4,2)
+  `price` float(4,2),
   PRIMARY KEY  (`id`)
-) TYPE=MyISAM AUTO_INCREMENT=1;
+)ENGINE=MyISAM;
 

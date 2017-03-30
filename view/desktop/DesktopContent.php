@@ -20,42 +20,10 @@
         </ul>
 
         <div class="nav-header center">
-            <div class="slider">
-                <ul class="slides">
-                    <li>
-                        <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
-                        <div class="caption center-align">
-                            <h3>This is our big Tagline!</h3>
-                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
-                        <div class="caption left-align">
-                            <h3>Left Aligned Caption</h3>
-                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
-                        <div class="caption right-align">
-                            <h3>Right Aligned Caption</h3>
-                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="http://lorempixel.com/580/250/nature/4"> <!-- random image -->
-                        <div class="caption center-align">
-                            <h3>This is our big Tagline!</h3>
-                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                        </div>
-                    </li>
-                </ul>
-            </div>
         </div>
-    </div>
 
-    <!-- Fixed Masonry Filters -->
+    </div>    
+    <!-- Menu Principal -->
     <div class="categories-wrapper purple lighten-1">
         <div class="categories-container">
             <ul class="categories container">
@@ -68,6 +36,40 @@
         </div>
     </div>
 </nav>
+<!-- Slider de Imagenes -->
+<!--div class="slider">
+    <ul class="slides">
+        <li>
+            <img src="http://lorempixel.com/580/250/nature/1">
+            <div class="caption center-align">
+                <h3>This is our big Tagline!</h3>
+                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            </div>
+        </li>
+        <li>
+            <img src="http://lorempixel.com/580/250/nature/2">
+            <div class="caption left-align">
+                <h3>Left Aligned Caption</h3>
+                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            </div>
+        </li>
+        <li>
+            <img src="http://lorempixel.com/580/250/nature/3">
+            <div class="caption right-align">
+                <h3>Right Aligned Caption</h3>
+                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            </div>
+        </li>
+        <li>
+            <img src="http://lorempixel.com/580/250/nature/4">
+            <div class="caption center-align">
+                <h3>This is our big Tagline!</h3>
+                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            </div>
+        </li>
+    </ul>
+</div-->
+<!-- Menu Gallery -->
 <ul class="side-nav" id="nav-mobile">
     <li class="active"><a href="index.html"><i class="material-icons">camera</i>Gallery</a></li>
     <li><a href="blog.html"><i class="material-icons">edit</i>Blog</a></li>
@@ -77,7 +79,7 @@
     <li><a href="no-image.html"><i class="material-icons">texture</i>No Image Expand</a></li>
 </ul>
 
-<!-- Modal Structure -->
+<!-- Modal Mensajes -->
 <div id="modal1" class="modal bottom-sheet">
     <div class="modal-content">
         <ul class="collection">
@@ -119,50 +121,70 @@
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
     </div>
 </div>
-<!-- Gallery -->
-<div id="portfolio" class="section gray">
-    <div class="container">
-        <div class="gallery row">
-            <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter polygon">
-                <div class="gallery-curve-wrapper">
-                    <a class="gallery-cover gray">
-                        <img class="responsive-img" src="images/bigbang1.png" alt="placeholder">
-                    </a>
-                    <div class="gallery-header">
-                        <span>Aquamarine</span>
-                    </div>
-                    <div class="gallery-body">
-                        <div class="title-wrapper">
-                            <h3>Aquamarine</h3>
-                            <span class="price">$29.99</span>
-                        </div>
-                        <div class="card-panel hoverable z-depth-5 darken-4">
-                            <div class="container">
-                                <video class="responsive-video" controls>
-                                    <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4">
-                                </video>
+<div class="row">
+
+    <div class="col s9">
+        <!-- Gallery -->
+        <div id="portfolio" class="section gray">
+            <div class="container">
+                <div class="gallery row">
+                    <div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter polygon">
+                        <div class="gallery-curve-wrapper">
+                            <a class="gallery-cover gray">
+                                <img class="responsive-img" src="images/bigbang1.png" alt="placeholder">
+                            </a>
+                            <div class="gallery-header">
+                                <span>Aquamarine</span>
                             </div>
-                        </div>                        
-                        <p class="description">
-                            Aca esta la descripcion venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice. Listicle butcher thundercats, taxidermy pitchfork next level roof party crucifix narwhal kinfolk you probably haven't heard of them portland small batch.</p>
-                        <p class="description">
-                            Ea salvia adipisicing vegan man bun. Flexitarian cupidatat skateboard flannel. Drinking vinegar marfa you probably haven't heard of them consequat post-ironic, shabby chic williamsburg raclette vaporware readymade selfies brunch. Venmo selvage biodiesel marfa. Tbh literally 3 wolf moon, proident elit raclette chambray consequat edison bulb four loko accusamus. Semiotics godard eiusmod, ex esse air plant quinoa vaporware selfies keytar. Actually yuccie ennui flannel single-origin coffee, williamsburg cardigan banjo forage pug distillery tumblr hexagon vinyl occaecat.</p>
+                            <div class="gallery-body">
+                                <div class="title-wrapper">
+                                    <h3>Aquamarine</h3>
+                                    <span class="price">$29.99</span>
+                                </div>
+                                <div class="card-panel hoverable z-depth-5 darken-4">
+                                    <div class="container">
+                                        <video class="responsive-video" controls>
+                                            <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>                        
+                                <p class="description">
+                                    Aca esta la descripcion venmo before they sold out, DIY heirloom forage polaroid offal yr pop-up selfies health goth. Typewriter scenester hammock truffaut meditation, squid before they sold out polaroid portland tousled taxidermy vice. Listicle butcher thundercats, taxidermy pitchfork next level roof party crucifix narwhal kinfolk you probably haven't heard of them portland small batch.</p>
+                                <p class="description">
+                                    Ea salvia adipisicing vegan man bun. Flexitarian cupidatat skateboard flannel. Drinking vinegar marfa you probably haven't heard of them consequat post-ironic, shabby chic williamsburg raclette vaporware readymade selfies brunch. Venmo selvage biodiesel marfa. Tbh literally 3 wolf moon, proident elit raclette chambray consequat edison bulb four loko accusamus. Semiotics godard eiusmod, ex esse air plant quinoa vaporware selfies keytar. Actually yuccie ennui flannel single-origin coffee, williamsburg cardigan banjo forage pug distillery tumblr hexagon vinyl occaecat.</p>
 
 
-                        <div class="carousel">
-                            <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/1"></a>
-                            <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/2"></a>
-                            <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/3"></a>
-                            <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/4"></a>
-                            <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/5"></a>
+                                <div class="carousel">
+                                    <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/1"></a>
+                                    <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/2"></a>
+                                    <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/3"></a>
+                                    <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/4"></a>
+                                    <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/5"></a>
+                                </div>
+                            </div>
+                            <div class="gallery-action">
+                                <a class="btn-floating btn-large waves-effect waves-light" href="#modal1"><i class="material-icons dp48">textsms</i></a>
+                                <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">favorite</i></a>
+                            </div>                   
                         </div>
                     </div>
-                    <div class="gallery-action">
-                        <a class="btn-floating btn-large waves-effect waves-light" href="#modal1"><i class="material-icons dp48">textsms</i></a>
-                        <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">favorite</i></a>
-                    </div>                   
                 </div>
             </div>
+        </div><!-- /.container -->
+    </div>
+
+    <div class="col s3">
+        <div class="collection">
+            <div class="collection-item avatar">
+                <img src="http://image.shutterstock.com/z/stock-vector-islamic-woman-front-face-cartoon-avatar-icon-446589853.jpg" alt="" class="circle">                
+                <p>First Line <br> Second Line </p>
+            </div>
+            <a href="#!" class="collection-item"><span class="badge">1</span>Alan</a>
+            <a href="#!" class="collection-item"><span class="new badge">4</span>Alan</a>
+            <a href="#!" class="collection-item">Alan</a>
+            <a href="#!" class="collection-item"><span class="badge">14</span>Alan</a>
         </div>
     </div>
-</div><!-- /.container -->
+
+</div>
+
