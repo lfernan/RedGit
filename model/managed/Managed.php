@@ -114,6 +114,26 @@ class Managed {
         }
     }
 
+    /*MENSAJES*/
+    public function getMessages($user) {
+        try {
+            if ($user != null) {
+                $stm = $this->conn->prepare("SELECT users.name,message.description,message.date_hour FROM message
+                                            INNER JOIN users ON users.id = message.user_from_id 
+                                            and message.user_from_id = ?");
+                $stm->execute(array($user));
+            } else {
+                $stm = $this->conn->prepare("SELECT users.name,message.description,message.date_hour FROM message
+                                            INNER JOIN users ON users.id = message.user_from_id");
+                $stm->execute();
+            }
+
+            return $stm->fetchAll(PDO::FETCH_CLASS);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
 }
 
 ?>

@@ -1,3 +1,6 @@
+<?php
+    $m = new Managed();
+?>
 <!-- Navbar and Header -->
 <nav class="nav-extended">
     <div class="nav-background">
@@ -128,8 +131,7 @@
         <div id="portfolio" class="section gray">
             <div class="container">                        
                 <div class="gallery row">
-                <?php
-                $m = new Managed();
+                <?php                
                 $stmt = $m->getUsers(null);
                 foreach ($stmt as $row){
                     //print "<p>".$row->id."-".$row->mail."</p>";                
@@ -177,14 +179,14 @@
 
     <div class="col s3">
         <div class="collection">
-            <div class="collection-item avatar">
+        <?php                
+        $stmt = $m->getMessages(null);
+        foreach ($stmt as $row){         
+            echo '<div class="collection-item avatar">
                 <img src="http://image.shutterstock.com/z/stock-vector-islamic-woman-front-face-cartoon-avatar-icon-446589853.jpg" alt="" class="circle">                
-                <p>First Line <br> Second Line </p>
-            </div>
-            <a href="#!" class="collection-item"><span class="badge">1</span>Alan</a>
-            <a href="#!" class="collection-item"><span class="new badge">4</span>Alan</a>
-            <a href="#!" class="collection-item">Alan</a>
-            <a href="#!" class="collection-item"><span class="badge">14</span>Alan</a>
+                <p>'.$row->name.'<br>'.$row->description.'</p>
+            </div>';
+        } ?>
         </div>
     </div>
 
