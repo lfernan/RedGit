@@ -36,7 +36,7 @@ class Managed {
         }
     }
     
-    public function updateUserDatos(Users $user) {
+    public function editUser(Users $user) {
         try {            
             $this->conn->prepare("UPDATE users SET name = ?,
                                                    nick_picture = ?,
@@ -82,10 +82,6 @@ class Managed {
         } catch (Exception $e) {
             die($e->getMessage());
         }
-    }
-
-    public function editUser(Users $user) {
-        
     }
 
     public function getUsers($id) {
