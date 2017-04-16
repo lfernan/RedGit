@@ -18,9 +18,11 @@
          } // Callback for Modal close
          }
          );*/
+        
         $('#modal1').modal({complete: function () {
                 $("#todos").click();
-            }});
+        }});
+
         $('.gallery-expand').galleryExpand({
             onShow: function (el) {
 
@@ -36,6 +38,18 @@
                 Materialize.toast('I am a toast!', 4000);
             }
         });
+        
         $('.materialboxed').materialbox();
+        
         $('.slider').slider();
+
+        $('#mensajes').flexslider({
+                    animation: "slide",
+                    direction: "vertical",
+                    minItems:4,
+                    directionNav: false,
+                    start: function (slider) {
+                        $('body').removeClass('loading');
+                    }
+        });
     });

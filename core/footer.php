@@ -6,6 +6,7 @@
 <script src="js/color-thief.min.js"></script>
 <script src="js/galleryExpand.js"></script>
 <script src="js/init.js"></script>
+<script src="js/jquery.flexslider-min.js"></script>
 <script src="js/red.js"></script>
 </body>
 </html>

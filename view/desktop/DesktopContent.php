@@ -178,16 +178,20 @@
     </div>
 
     <div class="col s3">
-        <div class="collection">
+        <!--div class="collection"-->
+        <div id="mensajes" class="collection">
+        <ul class="slides">
         <?php                
         $stmt = $m->getMessages(null);
         foreach ($stmt as $row){         
-            echo '<div class="collection-item avatar">
-                <img src="http://image.shutterstock.com/z/stock-vector-islamic-woman-front-face-cartoon-avatar-icon-446589853.jpg" alt="" class="circle">                
+      echo '<li class="collection-item avatar">
+                <img src="http://image.shutterstock.com/z/stock-vector-islamic-woman-front-face-cartoon-avatar-icon-446589853.jpg" alt="" height="20px" width="20px" class="circle">                
                 <p>'.$row->name.'<br>'.$row->description.'</p>
-            </div>';
+            </li>';
         } ?>
+        </ul>
         </div>
+        <!--/div-->
     </div>
 </div>
 
