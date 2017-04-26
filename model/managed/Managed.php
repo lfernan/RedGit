@@ -9,7 +9,7 @@ class Managed {
         $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    function __destruct() {        
+    function __destruct() {
         //mysqli_close($this->conn);
     }
 
@@ -18,26 +18,26 @@ class Managed {
     public function insertUser(Users $user) {
         try {
             $stm = $this->conn->prepare("SELECT id FROM users WHERE (user = ? OR mail = ?) LIMIT 1;");
-            $stm->execute(array($user->user,                                
-                                $user->mail));
+            $stm->execute(array($user->user,
+                $user->mail));
 
-            if($stm->rowCount()){
-               return 1;
-            }else{
+            if ($stm->rowCount()) {
+                return 1;
+            } else {
                 $this->conn->prepare("INSERT INTO users(user, pass, mail) VALUES (?,?,?)")->execute(array(
                     $user->user,
                     $user->pass,
                     $user->mail
                 ));
-               return 0;
+                return 0;
             }
         } catch (Exception $e) {
             die($e->getMessage());
         }
     }
-    
+
     public function editUser(Users $user) {
-        try {            
+        try {
             $this->conn->prepare("UPDATE users SET name = ?,
                                                    nick_picture = ?,
                                                    pictures = ?,
@@ -54,7 +54,7 @@ class Managed {
                                                    WHERE id = ?")->execute(array(
                 $user->name,
                 $user->nick_picture,
-                $user->pictures,                
+                $user->pictures,
                 $user->public_phone,
                 $user->sex,
                 $user->description,
@@ -65,10 +65,10 @@ class Managed {
                 $user->attention,
                 $user->schedules,
                 $user->smoking,
-                $user->id                                       
+                $user->id
             ));
-            
-            return 1;            
+
+            return 1;
         } catch (Exception $e) {
             die($e->getMessage());
         }
@@ -99,22 +99,23 @@ class Managed {
             die($e->getMessage());
         }
     }
-    
+
     public function getLogin($data, $pass) {
         try {
-            
-             $stm = $this->conn->prepare("SELECT * FROM users WHERE (user = ? OR mail = ?) AND pass = ? LIMIT 1;");
-             $stm->execute(array($data,
-                                 $data,
-                                 $pass));
 
-             return $stm->fetch(PDO::FETCH_OBJ);       
+            $stm = $this->conn->prepare("SELECT * FROM users WHERE (user = ? OR mail = ?) AND pass = ? LIMIT 1;");
+            $stm->execute(array($data,
+                $data,
+                $pass));
+
+            return $stm->fetch(PDO::FETCH_OBJ);
         } catch (Exception $e) {
             die($e->getMessage());
         }
     }
 
-    /*MENSAJES*/
+    /* MENSAJES */
+
     public function getMessages($user) {
         try {
             if ($user != null) {

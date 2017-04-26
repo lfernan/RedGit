@@ -7,6 +7,7 @@
 <script src="js/galleryExpand.js"></script>
 <script src="js/init.js"></script>
 <script src="js/jquery.flexslider-min.js"></script>
+<script src="js/jquery.bxslider.js"></script>
 <script src="js/red.js"></script>
 </body>
 </html>

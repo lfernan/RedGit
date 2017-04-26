@@ -1,5 +1,5 @@
 <?php
-    $m = new Managed();
+$m = new Managed();
 ?>
 <!-- Navbar and Header -->
 <nav class="nav-extended">
@@ -131,21 +131,21 @@
         <div id="portfolio" class="section gray">
             <div class="container">                        
                 <div class="gallery row">
-                <?php                
-                $stmt = $m->getUsers(null);
-                foreach ($stmt as $row){
-                    //print "<p>".$row->id."-".$row->mail."</p>";                
-                    echo '<div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter polygon">
+                    <?php
+                    $stmt = $m->getUsers(null);
+                    foreach ($stmt as $row) {
+                        //print "<p>".$row->id."-".$row->mail."</p>";                
+                        echo '<div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter polygon">
                         <div class="gallery-curve-wrapper">
                             <a class="gallery-cover gray">
                                 <img class="responsive-img" src="images/bigbang1.png" alt="placeholder">
                             </a>
                             <div class="gallery-header">
-                                <span>'.$row->name.'</span>
+                                <span>' . $row->name . '</span>
                             </div>
                             <div class="gallery-body">
                                 <div class="title-wrapper">
-                                    <h3>'.$row->name.'</h3>
+                                    <h3>' . $row->name . '</h3>
                                     <span class="price">$29.99</span>
                                 </div>
                                 <div class="card-panel hoverable z-depth-5 darken-4">
@@ -155,7 +155,7 @@
                                         </video>
                                     </div>
                                 </div>                        
-                                <p class="description">'.$row->description.'</p>
+                                <p class="description">' . $row->description . '</p>
                                 <div class="carousel">
                                     <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/1"></a>
                                     <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/2"></a>
@@ -176,22 +176,20 @@
             </div>
         </div>
     </div>
-
     <div class="col s3">
-        <!--div class="collection"-->
-        <div id="mensajes" class="collection">
-        <ul class="slides">
-        <?php                
-        $stmt = $m->getMessages(null);
-        foreach ($stmt as $row){         
-      echo '<li class="collection-item avatar">
+        <div id="mensajes" class="collection" style="border:none;">
+            <ul class="bxslider">
+                <?php
+                $stmt = $m->getMessages(null);
+                foreach ($stmt as $row) {
+                    echo '<li class="collection-item avatar">
                 <img src="http://image.shutterstock.com/z/stock-vector-islamic-woman-front-face-cartoon-avatar-icon-446589853.jpg" alt="" height="20px" width="20px" class="circle">                
-                <p>'.$row->name.'<br>'.$row->description.'</p>
+                <p>' . $row->name . '<br>' . $row->description . '</p>
             </li>';
-        } ?>
-        </ul>
+                }
+                ?>
+            </ul>
         </div>
-        <!--/div-->
     </div>
 </div>
 

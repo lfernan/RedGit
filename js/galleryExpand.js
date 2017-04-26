@@ -1,5 +1,5 @@
 /*!
- * Gallery v1.0.0
+ * Gallery v1.0.1
  * Materialize theme
  * http://materializecss.com/themes.html
  * Personal Use License
@@ -70,6 +70,14 @@
           origin.wrapInner($('<div class="placeholder"></div>'));
           placeholder = origin.children('.placeholder').first();
         }
+        if (!$header.length) {
+          $header = $('<div class="gallery-header invisible"></div>');
+          if ($object.length) {
+            $object.after($header);
+          } else {
+            $curveWrapper.append($header);
+          }
+        }
 
         // Setup fillScreen.
         var gradient = $object.find('.gradient').first();
@@ -96,7 +104,7 @@
           origContainerHeight = origin.height();
           origHeaderRect = $header[0].getBoundingClientRect();
           origHeaderWidth = origHeaderRect.width;
-          origHeaderHeight = origHeaderRect.height;
+          origHeaderHeight = origHeaderRect.height || 1;
           origObjectWidth = $object.width();
           origObjectHeight = $object.height();
           origObjectRect = $object.length ? $object[0].getBoundingClientRect() : {top: origHeaderRect.top, left: 0};
@@ -672,7 +680,7 @@
 
               // Return header
               $header.css({
-                transform: 'scaleX(1) translate3d(' + origHeaderRect.left + 'px,' + origHeaderOffsetTop + 'px,0)',
+                transform: 'translate3d(' + origHeaderRect.left + 'px,' + origHeaderOffsetTop + 'px,0)',
                 transition: 'transform ' + (options.outDuration / 1000) + 's',
                 '-webkit-transition': '-webkit-transform ' + (options.outDuration / 1000) + 's',
               });

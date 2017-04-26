@@ -43,7 +43,7 @@
         
         $('.slider').slider();
 
-        $('#mensajes').flexslider({
+        /*$('#mensajes').flexslider({
                     animation: "slide",
                     direction: "vertical",
                     minItems:4,
@@ -51,5 +51,13 @@
                     start: function (slider) {
                         $('body').removeClass('loading');
                     }
+        });*/
+
+        $('.bxslider').bxSlider({
+        minSlides: 4,
+        maxSlides: 4,
+        ticker: true,
+        speed: 10000,
+        mode: 'vertical'
         });
     });
