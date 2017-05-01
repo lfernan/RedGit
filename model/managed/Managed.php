@@ -135,6 +135,17 @@ class Managed {
         }
     }
 
+    /* SERVICIOS */
+
+    public function getServices() {
+        try {
+            $stm = $this->conn->prepare("SELECT * FROM service");
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_CLASS);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 }
 
 ?>

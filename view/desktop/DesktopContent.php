@@ -30,48 +30,16 @@ $m = new Managed();
     <div class="categories-wrapper purple lighten-1">
         <div class="categories-container">
             <ul class="categories container">
-                <li class="active" id="todos"><a href="#all">All</a></li>
-                <li><a href="#polygon">Polygon</a></li>
-                <li><a href="#bigbang">Big Bang</a></li>
+                <li class="active" id="todos"><a href="#M">All M</a></li>
+                <li><a href="#H">Polygon H</a></li>
+                <li><a href="#T">Big Bang T</a></li>
                 <li><a href="#sacred">Sacred Geometry</a></li>
                 <li><a href="#modal1">Mensajes</a></li>
             </ul>
         </div>
     </div>
 </nav>
-<!-- Slider de Imagenes -->
-<!--div class="slider">
-    <ul class="slides">
-        <li>
-            <img src="http://lorempixel.com/580/250/nature/1">
-            <div class="caption center-align">
-                <h3>This is our big Tagline!</h3>
-                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-            </div>
-        </li>
-        <li>
-            <img src="http://lorempixel.com/580/250/nature/2">
-            <div class="caption left-align">
-                <h3>Left Aligned Caption</h3>
-                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-            </div>
-        </li>
-        <li>
-            <img src="http://lorempixel.com/580/250/nature/3">
-            <div class="caption right-align">
-                <h3>Right Aligned Caption</h3>
-                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-            </div>
-        </li>
-        <li>
-            <img src="http://lorempixel.com/580/250/nature/4">
-            <div class="caption center-align">
-                <h3>This is our big Tagline!</h3>
-                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-            </div>
-        </li>
-    </ul>
-</div-->
+
 <!-- Menu Gallery -->
 <ul class="side-nav" id="nav-mobile">
     <li class="active"><a href="index.html"><i class="material-icons">camera</i>Gallery</a></li>
@@ -82,49 +50,6 @@ $m = new Managed();
     <li><a href="no-image.html"><i class="material-icons">texture</i>No Image Expand</a></li>
 </ul>
 
-<!-- Modal Mensajes -->
-<div id="modal1" class="modal bottom-sheet">
-    <div class="modal-content">
-        <ul class="collection">
-            <li class="collection-item avatar">
-                <img src="images/yuna.jpg" alt="" class="circle">
-                <span class="title">Title</span>
-                <p>First Line <br>
-                    Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-            </li>
-            <li class="collection-item avatar">
-                <i class="material-icons circle">folder</i>
-                <span class="title">Title</span>
-                <p>First Line <br>
-                    Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-            </li>
-            <li class="collection-item avatar">
-                <i class="material-icons circle green">insert_chart</i>
-                <span class="title">Title</span>
-                <p>First Line <br>
-                    Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-            </li>
-            <li class="collection-item avatar">
-                <i class="material-icons circle red">play_arrow</i>
-                <span class="title">Title</span>
-                <p>First Line <br>
-                    Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-            </li>
-        </ul>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-</div>
-
 <div class="row">
     <div class="col s9">
         <!-- Gallery -->          
@@ -134,8 +59,7 @@ $m = new Managed();
                     <?php
                     $stmt = $m->getUsers(null);
                     foreach ($stmt as $row) {
-                        //print "<p>".$row->id."-".$row->mail."</p>";                
-                        echo '<div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter polygon">
+                        echo '<div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter ' . $row->sex . '">
                         <div class="gallery-curve-wrapper">
                             <a class="gallery-cover gray">
                                 <img class="responsive-img" src="images/bigbang1.png" alt="placeholder">
