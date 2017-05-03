@@ -35,6 +35,7 @@ $m = new Managed();
                 </div>
             </div>
         </div>
+        <input type="file" name="files">
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">spa</i>
@@ -96,37 +97,4 @@ $m = new Managed();
         </div>
     </form>
 </div>
-<script>
-    $(document).ready(function () {
-        $('#weight').mask("00-00-00", {placeholder: "90-60-90"});
-        $('#price').mask("00000", {placeholder: "$"});
-    });
-
-    function guardar() {
-        $(".lever").click(function () {
-            alert("Handler for .change() called.");
-        });
-        var datos = "";
-        datos = datos + $('#name').val() + " ";
-        datos = datos + $('#age').val() + " ";
-        datos = datos + $('#weight').val() + " ";
-        datos = datos + $('#phone').val() + " ";
-        datos = datos + $('#services').val() + " ";
-        datos = datos + $('#price').val() + " ";
-        datos = datos + $('#schedules').val() + " ";
-        datos = datos + $('#description').val() + " ";
-        datos = datos + $('#publish').attr(':checked') + " ";        
-        //obtenemos un array con los datos del archivo
-        var file = $("#pictures")[0].files[0];
-        //obtenemos el nombre del archivo
-        var fileName = file.name;
-        //obtenemos la extensión del archivo
-        fileExtension = fileName.substring(fileName.lastIndexOf('.') + 1);
-        //obtenemos el tamaño del archivo
-        var fileSize = file.size;
-        //obtenemos el tipo de archivo image/png ejemplo
-        var fileType = file.type;
-        datos = datos + file +" "+ fileName +" "+ fileExtension +" "+ fileSize +" "+ fileType;
-        alert(datos);
-    }
-</script>
+<script src="js/data.js"></script>
