@@ -96,3 +96,4 @@ $m = new Managed();
         </div>
     </form>
 </div>
+<script src="js/data.js"></script>
