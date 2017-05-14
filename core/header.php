@@ -12,7 +12,6 @@
         <link href="css/gallery-materialize.min.css" rel="stylesheet">
         <link href="css/flexslider.css" rel="stylesheet">
         <link href="css/jquery.bxslider.css" rel="stylesheet">
-        <link href="css/jquery.fileuploader.css" rel="stylesheet">
 
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -26,7 +25,6 @@
         <script src="js/jquery.flexslider-min.js"></script>
         <script src="js/jquery.bxslider.js"></script>
         <script src="js/jquery.mask.min.js"></script>
-        <script src="js/jquery.fileuploader.min.js"></script>
         <script src="js/red.js"></script>
     </head>
     <body>

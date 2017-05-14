@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-04-2017 a las 01:27:00
+-- Tiempo de generación: 14-05-2017 a las 20:00:24
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -145,20 +145,21 @@ CREATE TABLE `users` (
   `attention` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `schedules` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `smoking` tinyint(1) NOT NULL DEFAULT '0',
-  `published` tinyint(1) NOT NULL DEFAULT '0'
+  `published` tinyint(1) NOT NULL DEFAULT '0',
+  `price` varchar(12) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `user`, `pass`, `mail`, `nick_picture`, `pictures`, `private_phone`, `public_phone`, `sex`, `description`, `age`, `measures`, `height`, `weight`, `attention`, `schedules`, `smoking`, `published`) VALUES
-(1, 'Nombre Usuario 1', 'user 1', 'clave1', 'email1@gmail.com', 'nickpicture1', 'pictures1', '1', '1', 'M', 'descripcion 1', 1, 'medidas 1', 'alto 1', 'peso 1', 'atencion 1', 'horarios 1', 0, 1),
-(2, 'Nombre Usuario 2', 'user 2', 'clave2', 'email2@gmail.com', 'nickpicture2', 'pictures2', '2', '2', 'M', 'descripcion 2', 2, 'medidas 2', 'alto 2', 'peso 2', 'atencion 2', 'horarios 2', 0, 1),
-(3, 'Nombre Usuario 3', 'user 3', 'clave3', 'email3@gmail.com', 'nickpicture3', 'pictures3', '3', '3', 'M', 'descripcion 3', 3, 'medidas 3', 'alto 3', 'peso 3', 'atencion 3', 'horarios 3', 0, 1),
-(4, 'Nombre Usuario 4', 'user 4', 'clave4', 'email4@gmail.com', 'nickpicture4', 'pictures4', '4', '4', 'M', 'descripcion 4', 4, 'medidas 4', 'alto 4', 'peso 4', 'atencion 4', 'horarios 4', 0, 1),
-(5, 'Nombre Usuario 5', 'user 5', 'clave5', 'email5@gmail.com', 'nickpicture5', 'pictures5', '5', '5', 'M', 'descripcion 5', 5, 'medidas 5', 'alto 5', 'peso 5', 'atencion 5', 'horarios 5', 0, 1),
-(6, 'Nombre Usuario 6', 'user 6', 'clave6', 'email6@gmail.com', 'nickpicture6', 'pictures6', '6', '6', 'M', 'descripcion 6', 6, 'medidas 6', 'alto 6', 'peso 6', 'atencion 6', 'horarios 6', 0, 1);
+INSERT INTO `users` (`id`, `name`, `user`, `pass`, `mail`, `nick_picture`, `pictures`, `private_phone`, `public_phone`, `sex`, `description`, `age`, `measures`, `height`, `weight`, `attention`, `schedules`, `smoking`, `published`, `price`) VALUES
+(1, 'Nombre Usuario 1', 'user 1', 'clave1', 'email1@gmail.com', 'nickpicture1', 'pictures1', '1', '1', 'M', 'descripcion 1', 1, 'medidas 1', 'alto 1', 'peso 1', 'atencion 1', 'horarios 1', 0, 1, ''),
+(2, 'Lola', 'user 2', 'clave2', 'email2@gmail.com', 'nickpicture2', 'pictures2', '2', '2', 'H', 'descripcion 2', 2, 'medidas 2', 'alto 2', 'peso 2', 'atencion 2', 'horarios 2', 0, 1, ''),
+(3, 'Nombre Usuario 3', 'user 3', 'clave3', 'email3@gmail.com', 'nickpicture3', 'pictures3', '3', '3', 'T', 'descripcion 3', 3, 'medidas 3', 'alto 3', 'peso 3', 'atencion 3', 'horarios 3', 0, 1, ''),
+(4, 'Nombre Usuario 4', 'user 4', 'clave4', 'email4@gmail.com', 'nickpicture4', 'pictures4', '4', '4', 'M', 'descripcion 4', 4, 'medidas 4', 'alto 4', 'peso 4', 'atencion 4', 'horarios 4', 0, 1, ''),
+(5, 'Nombre Usuario 5', 'user 5', 'clave5', 'email5@gmail.com', 'nickpicture5', 'pictures5', '5', '5', 'M', 'descripcion 5', 5, 'medidas 5', 'alto 5', 'peso 5', 'atencion 5', 'horarios 5', 0, 1, ''),
+(6, 'Nombre Usuario 6', 'user 6', 'clave6', 'email6@gmail.com', 'nickpicture6', 'pictures6', '6', '6', 'M', 'descripcion 6', 6, 'medidas 6', 'alto 6', 'peso 6', 'atencion 6', 'horarios 6', 0, 1, '');
 
 -- --------------------------------------------------------
 
