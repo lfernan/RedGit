@@ -24,12 +24,19 @@ class Managed {
             if ($stm->rowCount()) {
                 return 1;
             } else {
-                $this->conn->prepare("INSERT INTO users(user, pass, mail) VALUES (?,?,?)")->execute(array(
-                    $user->user,
-                    $user->pass,
-                    $user->mail
-                ));
-                return 0;
+                $this->conn->prepare("INSERT INTO users(age,attention,description,height,measures,name,nick_picture,pictures,public_phone,published,schedules) VALUES (?,?,?,?,?,?,?,?,?,?,?)")->execute(array(
+                    $user->age,
+                    $user->attention,
+                    $user->description,
+                    $user->height,
+                    $user->measures,
+                    $user->name,
+                    $user->nick_picture,
+                    $user->pictures,
+                    $user->public_phone,
+                    $user->published,
+                    $user->schedules));
+                return $this->conn->lastInsertId();
             }
         } catch (Exception $e) {
             die($e->getMessage());
@@ -146,6 +153,7 @@ class Managed {
             die($e->getMessage());
         }
     }
+
 }
 
 ?>

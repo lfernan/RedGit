@@ -1,6 +1,22 @@
 $(document).ready(function () {
     $('#weight').mask("00-00-00", {placeholder: "90-60-90"});
     $('#price').mask("00000", {placeholder: "$"});
+    
+    /*$('form').ajaxForm({
+        beforeSend:function(){
+            
+        },
+        uploadProgress:function(){
+            
+        },
+        success:function(){
+            
+        },
+        complete:function(){
+            
+        }
+    });*/
+    
 });
 
 function guardar() {
