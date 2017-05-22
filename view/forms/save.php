@@ -1,18 +1,5 @@
 <?php
 
-echo $_POST['name'] . '<br>';
-echo $_POST['phone'] . '<br>';
-echo $_POST['description'] . '<br>';
-echo $_POST['age'] . '<br>';
-echo $_POST['measures'] . '<br>';
-echo $_POST['schedules'] . '<br>';
-$services = $_POST['services'];
-for ($i = 0; $i < count($services); $i++) {
-    echo $services[$i] . '<br>';
-}
-echo $_POST['publish'] . '<br>';
-echo $_POST['price'] . '<br>';
-
 require_once '../../model/managed/Managed.php';
 require_once '../../model/entities/Users.php';
 $dir = $_SERVER["DOCUMENT_ROOT"] . '/RedGit/uploads/';
@@ -55,8 +42,6 @@ if (isset($_FILES["nick_picture"])) {
         for ($i = 0; $i < count($services); $i++) {            
             $m->insertUserService($idUser, $services[$i]);
         }
-    }
-    
-    echo 'PRICE-'.$user->price;
+    }        
 }
 ?>

@@ -9,6 +9,21 @@ function encrypt($string) {
     return md5($str);
 }
 
+function toPNG($img) {
+    $newpng = null;
+    $png = null;
+    if (exif_imagetype($img) == IMAGETYPE_GIF) {
+        $newpng = uniqid().'.png';
+        $png = imagepng(imagecreatefromgif($_FILES['image']['tmp_name']), $newpng);
+    } elseif (exif_imagetype($_FILES['image']['tmp_name']) == IMAGETYPE_JPEG) {
+        $newpng = uniqid().'.png';
+        $png = imagepng(imagecreatefromjpeg($_FILES['image']['tmp_name']), $newpng);
+    } else {
+        $newpng = uniqid().'.png';
+    }
+    return $png;
+}
+
 function dispositivo() {
     $tablet_browser = 0;
     $mobile_browser = 0;
@@ -24,7 +39,7 @@ function dispositivo() {
         $body_class = "mobile";
     }
 
-    if ((strpos(strtolower($_SERVER['HTTP_ACCEPT']), 'application/vnd.wap.xhtml+xml') > 0) or ((isset($_SERVER['HTTP_X_WAP_PROFILE']) or isset($_SERVER['HTTP_PROFILE'])))) {
+    if ((strpos(strtolower($_SERVER['HTTP_ACCEPT']), 'application/vnd.wap.xhtml+xml') > 0) or ( (isset($_SERVER['HTTP_X_WAP_PROFILE']) or isset($_SERVER['HTTP_PROFILE'])))) {
         $mobile_browser++;
         $body_class = "mobile";
     }
