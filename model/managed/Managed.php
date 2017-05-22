@@ -24,7 +24,7 @@ class Managed {
             if ($stm->rowCount()) {
                 return 1;
             } else {
-                $this->conn->prepare("INSERT INTO users(age,attention,description,height,measures,name,nick_picture,pictures,public_phone,published,schedules) VALUES (?,?,?,?,?,?,?,?,?,?,?)")->execute(array(
+                $this->conn->prepare("INSERT INTO users(age,attention,description,height,measures,name,nick_picture,pictures,public_phone,published,schedules,price) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)")->execute(array(
                     $user->age,
                     $user->attention,
                     $user->description,
@@ -35,7 +35,8 @@ class Managed {
                     $user->pictures,
                     $user->public_phone,
                     $user->published,
-                    $user->schedules));
+                    $user->schedules,
+                    $user->price));
                 return $this->conn->lastInsertId();
             }
         } catch (Exception $e) {
@@ -149,6 +150,17 @@ class Managed {
             $stm = $this->conn->prepare("SELECT * FROM service");
             $stm->execute();
             return $stm->fetchAll(PDO::FETCH_CLASS);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    /* SAVE SERVICES-USER */
+
+    public function insertUserService($idUser, $idService) {
+        try {
+            $this->conn->prepare("INSERT INTO userservice(user_id,service_id) VALUES (?,?)")->execute(array(
+                $idUser, $idService));
         } catch (Exception $e) {
             die($e->getMessage());
         }

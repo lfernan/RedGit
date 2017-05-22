@@ -2,7 +2,7 @@
 $m = new Managed();
 ?>
 <div class="row">
-    <form class="col s12" action="view/forms/save.php" method="post" enctype="multipart/form-data">        
+    <form class="col s12" action="view/forms/save.php" method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">account_circle</i>
@@ -20,7 +20,7 @@ $m = new Managed();
                 <div class="btn">
                     <span>Foto de Perfil</span>
                     <!--input type="hidden" name="MAX_FILE_SIZE" value="30000"/-->
-                    <input id="nick-picture" name="nick-picture" type="file">
+                    <input id="nick_picture" name="nick_picture" type="file">
                 </div>
                 <div class="file-path-wrapper">
                     <input class="file-path validate" type="text">
@@ -39,8 +39,8 @@ $m = new Managed();
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">spa</i>
-                <input placeholder="90-60-90" id="weight" name="weight" type="text" class="validate">
-                <label for="weight">Medidas</label>
+                <input placeholder="90-60-90" id="measures" name="measures" type="text" class="validate">
+                <label for="measures">Medidas</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">phone</i>
@@ -51,7 +51,7 @@ $m = new Managed();
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">grade</i>
-                <select multiple id="services" name="services">    
+                <select multiple id="services" name="services[]">    
                     <?php
                     $stmt = $m->getServices();
                     foreach ($stmt as $row) {
@@ -86,15 +86,15 @@ $m = new Managed();
             <div class="switch">            
                 <label>
                     NO
-                    <input type="checkbox" id="pusblish" name="pusblish" checked>
+                    <input type="checkbox" id="publish" name="publish" checked>
                     <span class="lever"></span>
                     SI
                 </label>
             </div>
         </div>        
-        <div class="row center-align">
-            <a class="waves-effect waves-light btn-large"><i class="material-icons left">check</i>Guardar</a>            
-            <!--a onclick="guardar()" class="waves-effect waves-light btn-large"><i class="material-icons left">check</i>Guardar</a-->
+        <div class="row center-align">            
+            <!--a type="submit" onclick="guardar()" class="waves-effect waves-light btn-large"><i class="material-icons left">check</i>Guardar</a-->
+            <input type="submit" class="waves-effect waves-light btn-large" value="Guardar"/>
         </div>
         <input type="submit" value="Submit"/>
     </form>

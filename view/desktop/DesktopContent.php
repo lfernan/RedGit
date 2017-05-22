@@ -62,7 +62,7 @@ $m = new Managed();
                         echo '<div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter ' . $row->sex . '">
                         <div class="gallery-curve-wrapper">
                             <a class="gallery-cover gray">
-                                <img class="responsive-img" src="images/bigbang1.png" alt="placeholder">
+                                <img class="responsive-img" src="'.HTTP_PATH.$row->nick_picture.'" alt="placeholder">
                             </a>
                             <div class="gallery-header">
                                 <span>' . $row->name . '</span>
@@ -70,7 +70,7 @@ $m = new Managed();
                             <div class="gallery-body">
                                 <div class="title-wrapper">
                                     <h3>' . $row->name . '</h3>
-                                    <span class="price">$29.99</span>
+                                    <span class="price">$'. $row->price .'</span>
                                 </div>
                                 <div class="card-panel hoverable z-depth-5 darken-4">
                                     <div class="container">
@@ -80,13 +80,12 @@ $m = new Managed();
                                     </div>
                                 </div>                        
                                 <p class="description">' . $row->description . '</p>
-                                <div class="carousel">
-                                    <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/1"></a>
-                                    <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/2"></a>
-                                    <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/3"></a>
-                                    <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/4"></a>
-                                    <a class="carousel-item"><img src="http://lorempixel.com/250/250/nature/5"></a>
-                                </div>
+                                <div class="carousel">';                        
+                        $files = glob(ROOT_PATH . $row->pictures . '*');
+                        foreach ($files as $file) {                            
+                            echo '<a class="carousel-item"><img src="'.HTTP_PATH . $row->pictures . basename($file).'"></a>';
+                        }
+                        echo '</div>
                             </div>
                             <div class="gallery-action">
                                 <a class="btn-floating btn-large waves-effect waves-light" href="#modal1"><i class="material-icons dp48">textsms</i></a>

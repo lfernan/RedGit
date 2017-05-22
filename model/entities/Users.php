@@ -20,6 +20,7 @@ class Users {
     public $schedules;
     public $smoking;
     public $published;
+    public $price;
     
     function __construct() {        
     }

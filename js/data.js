@@ -1,49 +1,36 @@
 $(document).ready(function () {
-    $('#weight').mask("00-00-00", {placeholder: "90-60-90"});
+    $('#measures').mask("00-00-00", {placeholder: "90-60-90"});
     $('#price').mask("00000", {placeholder: "$"});
-    
-    /*$('form').ajaxForm({
-        beforeSend:function(){
-            
-        },
-        uploadProgress:function(){
-            
-        },
-        success:function(){
-            
-        },
-        complete:function(){
-            
-        }
-    });*/
-    
 });
 
-function guardar() {
-    var datos = "";
-    /*datos = datos + "name="+ $('#name').val() + "&";
-    datos = datos + "age="+ $('#age').val() + "&";
-    datos = datos + "weight="+ $('#weight').val() + "&";
-    datos = datos + "phone="+ $('#phone').val() + "&";
-    datos = datos + "services="+ $('#services').val() + "&";
-    datos = datos + "price="+ $('#price').val() + "&";
-    datos = datos + "schedules="+ $('#schedules').val() + "&";
-    datos = datos + "description="+ $('#description').val() + "&";
-    datos = datos + "publish="+ document.getElementById("pusblish").checked ? "true" : "false";    */
-    datos = datos + "nick-picture=" + $('#nick-picture')[0].files[0];
-    
-    alert(datos);
+/*$('#form').submit(function (event) {
+    console.log('submit');
+    var form = new FormData(this);
+    form.append('services',$('#services').val());
+    form.append('publish', document.getElementById("publish").checked ? true : false)
+    console.log(form);
+});*/
 
-    /*$.ajax({
-        url: "save.php",
-        type: "POST",
-        data: new FormData(datos),
-        contentType: false,
-        cache: false,
-        processData: false,
-        success: function (data){
-            $('#loading').hide();
-            $("#message").html(data);
-        }
+function guardar() {
+    $( "#formulario" ).submit();
+    /*var datos = {
+        name: $('#name').val(),
+        age: $('#age').val(),
+        phone: $('#phone').val(),
+        services: $('#services').val(),
+        price: $('#price').val(),
+        schedules: $('#schedules').val(),
+        description: $('#description').val(),
+        publish: document.getElementById("publish").checked ? true : false,
+        nick_picture: $('#nick-picture')[0].files[0],
+        pictures: $('#pictures')[0].files
+    };
+
+    $.ajax({
+        method: "POST",
+        url: "view/forms/save.php",
+        data: {publish: true,nick_picture: $('#nick-picture')[0].files[0]}
+    }).done(function (msg) {
+        alert("Data Saved: " + msg);
     });*/
 }
