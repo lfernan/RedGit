@@ -20,8 +20,20 @@ function toPNG($img) {
         $png = imagepng(imagecreatefromjpeg($_FILES['image']['tmp_name']), $newpng);
     } else {
         $newpng = uniqid().'.png';
+        $png = imagepng($_FILES['image']['tmp_name'], $newpng);
     }
     return $png;
+}
+
+function getExtension($img){
+    if (exif_imagetype($img) == IMAGETYPE_GIF) {        
+        return ".gif";
+    } elseif (exif_imagetype($img) == IMAGETYPE_JPEG) {
+        return ".jpeg";
+    } elseif (exif_imagetype($img) == IMAGETYPE_PNG) {
+        return ".png";
+    }
+    return null;
 }
 
 function dispositivo() {
