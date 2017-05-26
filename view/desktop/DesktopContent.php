@@ -62,7 +62,7 @@ $m = new Managed();
                         echo '<div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter ' . $row->sex . '">
                         <div class="gallery-curve-wrapper">
                             <a class="gallery-cover gray">
-                                <img class="responsive-img" src="'.HTTP_PATH.$row->nick_picture.'" alt="placeholder">
+                                <img class="responsive-img" src="' . HTTP_PATH . $row->nick . '" alt="placeholder">
                             </a>
                             <div class="gallery-header">
                                 <span>' . $row->name . '</span>
@@ -70,20 +70,20 @@ $m = new Managed();
                             <div class="gallery-body">
                                 <div class="title-wrapper">
                                     <h3>' . $row->name . '</h3>
-                                    <span class="price">$'. $row->price .'</span>
+                                    <span class="price">$' . $row->price . '</span>
                                 </div>
                                 <div class="card-panel hoverable z-depth-5 darken-4">
                                     <div class="container">
                                         <video class="responsive-video" controls>
-                                            <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4">
+                                            <source src="' . HTTP_PATH . $row->video . '" type="video/mp4">
                                         </video>
                                     </div>
                                 </div>                        
                                 <p class="description">' . $row->description . '</p>
-                                <div class="carousel">';                        
-                        $files = glob(ROOT_PATH . $row->pictures . '*');
-                        foreach ($files as $file) {                            
-                            echo '<a class="carousel-item"><img src="'.HTTP_PATH . $row->pictures . basename($file).'"></a>';
+                                <div class="carousel">';
+                        $files = glob(ROOT_PATH . $row->album . '*');
+                        foreach ($files as $file) {
+                            echo '<a class="carousel-item"><img src="' . HTTP_PATH . $row->album . basename($file) . '"></a>';
                         }
                         echo '</div>
                             </div>

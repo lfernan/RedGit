@@ -6,8 +6,9 @@ class Users {
     public $user;
     public $pass;
     public $mail;
-    public $nick_picture;
-    public $pictures;
+    public $nick;
+    public $album;
+    public $video;
     public $private_phone;
     public $public_phone;
     public $sex;

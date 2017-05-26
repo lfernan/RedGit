@@ -26,7 +26,7 @@ function toPNG($img) {
 }
 
 function getExtension($img){
-    if (exif_imagetype($img) == IMAGETYPE_GIF) {        
+    if (exif_imagetype($img) ==  IMAGETYPE_GIF) {        
         return ".gif";
     } elseif (exif_imagetype($img) == IMAGETYPE_JPEG) {
         return ".jpeg";

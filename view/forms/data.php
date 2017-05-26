@@ -28,6 +28,16 @@ $m = new Managed();
             </div>
             <div class="file-field input-field">
                 <div class="btn">
+                    <span>Video</span>
+                    <!--input type="hidden" name="MAX_FILE_SIZE" value="30000"/-->
+                    <input id="video" name="video" type="file">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+            <div class="file-field input-field">
+                <div class="btn">
                     <span>Fotos</span>
                     <input id="pictures" name="pictures[]" type="file" multiple>
                 </div>

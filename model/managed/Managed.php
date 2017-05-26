@@ -24,15 +24,16 @@ class Managed {
             if ($stm->rowCount()) {
                 return 1;
             } else {
-                $this->conn->prepare("INSERT INTO users(age,attention,description,height,measures,name,nick_picture,pictures,public_phone,published,schedules,price) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)")->execute(array(
+                $this->conn->prepare("INSERT INTO users(age,attention,description,height,measures,name,nick,album,video,public_phone,published,schedules,price) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)")->execute(array(
                     $user->age,
                     $user->attention,
                     $user->description,
                     $user->height,
                     $user->measures,
                     $user->name,
-                    $user->nick_picture,
-                    $user->pictures,
+                    $user->nick,
+                    $user->album,
+                    $user->video,
                     $user->public_phone,
                     $user->published,
                     $user->schedules,
