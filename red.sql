@@ -101,12 +101,13 @@ CREATE TABLE `service` (
 --
 
 INSERT INTO `service` (`id`, `name`) VALUES
-(1, 'Servicio 1'),
-(2, 'Servicio 2'),
-(3, 'Servicio 3'),
-(4, 'Servicio 4'),
-(5, 'Servicio 5'),
-(6, 'Servicio 6');
+(1, 'Convencionales'),
+(2, 'Salidas a Hoteles'),
+(3, 'Cenas y Eventos'),
+(4, 'Viajes'),
+(5, 'Besos'),
+(6, 'Masajes'),
+(7, 'Despedidas de Solteros');
 
 -- --------------------------------------------------------
 
@@ -132,12 +133,14 @@ CREATE TABLE `users` (
   `user` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `pass` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `mail` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `nick_picture` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `pictures` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `nick` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `album` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `video` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
   `private_phone` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
   `public_phone` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
   `sex` varchar(1) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `description` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `description` varchar(400) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `location` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
   `age` int(2) DEFAULT NULL,
   `measures` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `height` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
@@ -149,14 +152,6 @@ CREATE TABLE `users` (
   `price` varchar(4) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `users`
---
-
-INSERT INTO `users` (`id`, `name`, `user`, `pass`, `mail`, `nick_picture`, `pictures`, `private_phone`, `public_phone`, `sex`, `description`, `age`, `measures`, `height`, `weight`, `attention`, `schedules`, `smoking`, `published`, `price`) VALUES
-(1, 'Leandro', NULL, NULL, NULL, 'uploads/591dc1d07c6a8/bigbang3.jpg', 'uploads/591dc1d07c6a8/album/', NULL, '2634716166', NULL, 'asdevefherrrrrrrrrrrrrrrrrrrrrrrr', 28, '90-60-90', NULL, NULL, NULL, 'lunes', 0, 1, 0.00);
-
--- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `userservice`
@@ -169,13 +164,6 @@ CREATE TABLE `userservice` (
   `price` float(4,2) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `userservice`
---
-
-INSERT INTO `userservice` (`id`, `service_id`, `user_id`, `price`) VALUES
-(1, 3, 1, NULL),
-(2, 5, 1, NULL);
 
 --
 -- Índices para tablas volcadas

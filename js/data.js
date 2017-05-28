@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $('#measures').mask("00-00-00", {placeholder: "90-60-90"});
-    $('#price').mask("00000", {placeholder: "$"});
+    //$('#price').mask("00000", {placeholder: "$"});
 });
 
 /*$('#form').submit(function (event) {

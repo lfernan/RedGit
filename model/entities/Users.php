@@ -21,7 +21,7 @@ class Users {
     public $schedules;
     public $smoking;
     public $published;
-    public $price;
+    public $location;
     
     function __construct() {        
     }

@@ -71,16 +71,24 @@ $m = new Managed();
                                 <div class="title-wrapper">
                                     <h3>' . $row->name . '</h3>
                                     <span class="price">$' . $row->price . '</span>
-                                </div>
-                                <div class="card-panel hoverable z-depth-5 darken-4">
+                                </div>';
+                        if ($row->video != null) {
+                            echo '<div class="card-panel hoverable z-depth-5 darken-4">
                                     <div class="container">
                                         <video class="responsive-video" controls>
                                             <source src="' . HTTP_PATH . $row->video . '" type="video/mp4">
                                         </video>
                                     </div>
-                                </div>                        
-                                <p class="description">' . $row->description . '</p>
-                                <div class="carousel">';
+                                </div>';
+                        }
+                        echo '<p class="description">' . $row->description . '</p>';
+                        echo '<div class="card-panel">';
+                        $stmt = $m->getServices($row->id);
+                        foreach ($stmt as $serv) {
+                            echo '<span class="blue-text text-darken-2">'.$serv->name.'</span>';
+                        }
+                        echo '</div>';
+                        echo '<div class="carousel center">';
                         $files = glob(ROOT_PATH . $row->album . '*');
                         foreach ($files as $file) {
                             echo '<a class="carousel-item"><img src="' . HTTP_PATH . $row->album . basename($file) . '"></a>';

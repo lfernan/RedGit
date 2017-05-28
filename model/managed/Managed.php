@@ -146,10 +146,16 @@ class Managed {
 
     /* SERVICIOS */
 
-    public function getServices() {
+    public function getServices($user) {
         try {
-            $stm = $this->conn->prepare("SELECT * FROM service");
-            $stm->execute();
+            if ($user == null) {
+                $stm = $this->conn->prepare("SELECT * FROM service");
+                $stm->execute();
+            } else {
+                $stm = $this->conn->prepare("SELECT name FROM service INNER JOIN userservice ON userservice.id = service.id
+                                            AND userservice.user_id = ?");
+                $stm->execute(array($user));
+            }            
             return $stm->fetchAll(PDO::FETCH_CLASS);
         } catch (Exception $e) {
             die($e->getMessage());

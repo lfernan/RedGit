@@ -59,11 +59,23 @@ $m = new Managed();
             </div>
         </div>
         <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">room</i>
+                <input id="location" name="location" type="text" class="validate">
+                <label for="location">Zona</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">email</i>
+                <input id="mail" name="mail" type="text" class="validate">
+                <label for="mail">E-mail</label>
+            </div>
+        </div>
+        <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">grade</i>
                 <select multiple id="services" name="services[]">    
                     <?php
-                    $stmt = $m->getServices();
+                    $stmt = $m->getServices(null);
                     foreach ($stmt as $row) {
                         echo '<option value="' . $row->id . '">' . $row->name . '</option>';
                     }
@@ -87,7 +99,7 @@ $m = new Managed();
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">comment</i>
-                <textarea id="description" name="description" class="materialize-textarea" data-length="250"></textarea>
+                <textarea id="description" name="description" class="materialize-textarea" data-length="400"></textarea>
                 <label for="description">Descripcion sobre ti</label>
             </div>
         </div>

@@ -20,6 +20,8 @@ if (isset($_FILES["nick_picture"])) {
     $user->measures = $_POST['measures'];
     $user->schedules = $_POST['schedules'];
     $user->price = $_POST['price'];
+    $user->location = $_POST['location'];
+    $user->mail = $_POST['mail'];
     $user->published = 1;
 
     if ($_FILES["nick_picture"]["error"] > 0) {
