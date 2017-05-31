@@ -51,6 +51,8 @@ if (isset($_FILES["nick_picture"])) {
         $idUser = $m->insertUser($user);
         $services = $_POST['services'];
         for ($i = 0; $i < count($services); $i++) {
+            echo 'count '.count($services).'<br>';
+            echo 'id '.$services[$i].'<br>';
             $m->insertUserService($idUser, $services[$i]);
         }
     }

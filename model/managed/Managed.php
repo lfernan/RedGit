@@ -152,7 +152,7 @@ class Managed {
                 $stm = $this->conn->prepare("SELECT * FROM service");
                 $stm->execute();
             } else {
-                $stm = $this->conn->prepare("SELECT name FROM service INNER JOIN userservice ON userservice.id = service.id
+                $stm = $this->conn->prepare("SELECT name FROM service INNER JOIN userservice ON userservice.service_id = service.id
                                             AND userservice.user_id = ?");
                 $stm->execute(array($user));
             }            

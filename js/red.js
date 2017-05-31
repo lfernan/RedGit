@@ -1,9 +1,9 @@
 $(document).ready(function () {
-    $('.carousel.carousel-slider').carousel({
+    /*$('.carousel.carousel-slider').carousel({
         fullWidth: true,
         indicators: true
     
-    });    
+    });  */  
 
     $('#modal1').modal({complete: function () {
             $("#todos").click();
@@ -15,7 +15,9 @@ $(document).ready(function () {
             var carousel = el.find('.carousel.initialized');
             carousel.carousel({
                 dist: 0,
-                padding: 10
+                padding: 10,
+                indicators: true,
+                fullWidth: true
             });
             // Tabs
             $('ul.tabs').tabs();
