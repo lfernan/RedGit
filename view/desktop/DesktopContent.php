@@ -70,7 +70,6 @@ $m = new Managed();
                             <div class="gallery-body brown lighten-5">
                                 <div class="title-wrapper">
                                     <h3 style="color:#b71c1c;">' . $row->name . '</h3>
-                                    <span class="price">$' . $row->price . '</span>
                                 </div>';
                         if ($row->video != null) {
                             echo '<video class="responsive-video" controls>
@@ -84,7 +83,7 @@ $m = new Managed();
                             <div class="container">
                               <div class="row">
                                 <div class="col s12 m6">
-                                  <h5 class="white-text">Links</h5>
+                                  <h5 class="white-text">Servicios</h5>
                                   <ul>';
                         $stmt = $m->getServices($row->id);
                         foreach ($stmt as $serv) {
@@ -94,7 +93,7 @@ $m = new Managed();
                                 </div>
                               </div>
                             </div>
-                            <div class="footer-copyright">
+                            <div class="footer-copyright" style="font-size:15pt;">
                               <div class="container">
                               Tarifa
                               <a class="grey-text text-lighten-4 right" href="#!">$'.$row->price.'</a>

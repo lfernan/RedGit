@@ -33,10 +33,12 @@ if (isset($_FILES["nick_picture"])) {
         $nombre = uniqid() . getExtension($_FILES["nick_picture"]["tmp_name"]);
         move_uploaded_file($_FILES["nick_picture"]["tmp_name"], $nick . $nombre);
         $user->nick = "uploads/" . $id_dir . $nombre;
+        if($_FILES["video"]["error"] > 0){
         mkdir($nick . "video");
         $video = $nick . "video/" . $_FILES["video"]["name"];
         $user->video = "uploads/" . $id_dir . "video/" . $_FILES["video"]["name"];
         move_uploaded_file($_FILES["video"]["tmp_name"], $video);
+        }
     }
 
     if ($_FILES['pictures']['size'] > 0) {
