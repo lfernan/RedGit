@@ -1,17 +1,10 @@
 $(document).ready(function () {
-    /*$('.carousel.carousel-slider').carousel({
-        fullWidth: true,
-        indicators: true
-    
-    });  */  
-
     $('#modal1').modal({complete: function () {
             $("#todos").click();
         }});
 
     $('.gallery-expand').galleryExpand({
         onShow: function (el) {
-            // Carousel
             var carousel = el.find('.carousel.initialized');
             carousel.carousel({
                 dist: 0,
@@ -19,15 +12,14 @@ $(document).ready(function () {
                 indicators: true,
                 fullWidth: true
             });
-            // Tabs
-            $('ul.tabs').tabs();
+            //$('ul.tabs').tabs();
             Materialize.toast('I am a toast!', 4000);
         }
     });
 
-    $('.materialboxed').materialbox();
+    /*$('.materialboxed').materialbox();
 
-    $('.slider').slider();    
+    $('.slider').slider();*/
 
     $('.bxslider').bxSlider({
         minSlides: 4,
@@ -40,3 +32,10 @@ $(document).ready(function () {
     $('select').material_select();
     $('textarea').characterCounter();
 });
+
+function galeria(n){    
+    $('<div id="overlaygallery" class="overlay"></div>').appendTo('body');
+    $('#overlaygallery').load('gallery.html',function(){
+        //alert( "Load was performed." );
+    });
+}

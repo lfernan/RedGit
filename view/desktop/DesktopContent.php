@@ -4,10 +4,11 @@ $m = new Managed();
 <!-- Navbar and Header -->
 <nav class="nav-extended blue-grey darken-4">
     <div class="nav-background">
-        <div class="pattern active" style="background-image: url('http://placehold.it/1400x300');"></div>
+        <!--div class="pattern active" style="background-image: url('http://placehold.it/1400x300');"></div-->
+        <?php echo '<div class="pattern active" style="background-image: url(\''. HTTP_PATH .'images/sexy_legs_black.jpg\');"></div>'; ?>
     </div>
     <div class="nav-wrapper container">
-        <a href="index.html" class="brand-logo"><i class="material-icons">camera</i>Gallery</a>
+        <a href="index.html" class="brand-logo" style="color:#B71C1C;"><i class="material-icons">star</i>Red</a>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             <li class="active"><a href="index.html">Gallery</a></li>
@@ -75,9 +76,9 @@ $m = new Managed();
                             echo '<video class="responsive-video" controls>
                                     <source src="' . HTTP_PATH . $row->video . '" type="video/mp4">
                                   </video>';
-                        }                        
-                        echo '<div class="card-panel">';                        
-                        echo '<span class="red-text text-darken-4">' . $row->description . '</span>';                        
+                        }
+                        echo '<div class="card-panel">';
+                        echo '<span class="red-text text-darken-4">' . $row->description . '</span>';
                         echo '</div>';
                         echo '<footer class="page-footer red darken-4">
                             <div class="container">
@@ -96,16 +97,16 @@ $m = new Managed();
                             <div class="footer-copyright" style="font-size:15pt;">
                               <div class="container">
                               Tarifa
-                              <a class="grey-text text-lighten-4 right" href="#!">$'.$row->price.'</a>
+                              <a class="grey-text text-lighten-4 right" href="#!">$' . $row->price . '</a>
                               </div>
                             </div>
                           </footer>';
-                        echo '<div class="carousel center">';
+                        echo '<div class="card-panel"><div class="carousel center">';
                         $files = glob(ROOT_PATH . $row->album . '*');
                         foreach ($files as $file) {
-                            echo '<a class="carousel-item"><img src="' . HTTP_PATH . $row->album . basename($file) . '"></a>';
+                            echo '<a class="carousel-item" onclick="galeria(\''.basename($file).'\');"><img src="' . HTTP_PATH . $row->album . basename($file) . '"></a>';
                         }
-                        echo '</div>
+                        echo '</div></div>
                             </div>
                             <div class="gallery-action">
                                 <a class="btn-floating btn-large waves-effect waves-light" href="#modal1"><i class="material-icons dp48">textsms</i></a>
