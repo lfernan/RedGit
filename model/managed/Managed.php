@@ -97,7 +97,7 @@ class Managed {
         try {
             if ($id != null) {
                 $stm = $this->conn->prepare("SELECT * FROM users WHERE id = ?");
-                $stm->execute(array($id));
+                $stm->execute(array($id));                
             } else {
                 $stm = $this->conn->prepare("SELECT * FROM users");
                 $stm->execute();

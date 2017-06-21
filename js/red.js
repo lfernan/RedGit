@@ -12,14 +12,9 @@ $(document).ready(function () {
                 indicators: true,
                 fullWidth: true
             });
-            //$('ul.tabs').tabs();
             Materialize.toast('I am a toast!', 4000);
         }
     });
-
-    /*$('.materialboxed').materialbox();
-
-    $('.slider').slider();*/
 
     $('.bxslider').bxSlider({
         minSlides: 4,
@@ -33,9 +28,8 @@ $(document).ready(function () {
     $('textarea').characterCounter();
 });
 
-function galeria(n){    
+function galeria(n) {
+    console.log(n);
     $('<div id="overlaygallery" class="overlay"></div>').appendTo('body');
-    $('#overlaygallery').load('gallery.html',function(){
-        //alert( "Load was performed." );
-    });
+    $("#overlaygallery").load("./view/gallery.php", {n: n});
 }

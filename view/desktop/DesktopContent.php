@@ -104,7 +104,8 @@ $m = new Managed();
                         echo '<div class="card-panel"><div class="carousel center">';
                         $files = glob(ROOT_PATH . $row->album . '*');
                         foreach ($files as $file) {
-                            echo '<a class="carousel-item" onclick="galeria(\''.basename($file).'\');"><img src="' . HTTP_PATH . $row->album . basename($file) . '"></a>';
+                            //echo '<a class="carousel-item" onclick="galeria(\''.basename($file).'\');"><img src="' . HTTP_PATH . $row->album . basename($file) . '"></a>';
+                            echo '<a class="carousel-item" onclick="galeria(\''.$row->id.'\');"><img src="' . HTTP_PATH . $row->album . basename($file) . '"></a>';
                         }
                         echo '</div></div>
                             </div>
