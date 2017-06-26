@@ -73,48 +73,63 @@ $m = new Managed();
                                     <h3 style="color:#b71c1c;">' . $row->name . '</h3>
                                 </div>';
                         if ($row->video != null) {
-                            echo '<video class="responsive-video" controls>
+                            echo '<div class="container">
+                              <div class="row"><video class="responsive-video" controls>
                                     <source src="' . HTTP_PATH . $row->video . '" type="video/mp4">
-                                  </video>';
+                                  </video></div></div>';
                         }
                         echo '<div class="card-panel">';
-                        echo '<span class="red-text text-darken-4">' . $row->description . '</span>';
+                        echo '<span class="red-text text-darken-4" style="font-style: italic;">"'.$row->description.'"</span>';
                         echo '</div>';
                         echo '<footer class="page-footer red darken-4">
-                            <div class="container">
-                              <div class="row">
-                                <div class="col s12 m6">
-                                  <h5 class="white-text">Servicios</h5>
-                                  <ul>';
-                        $stmt = $m->getServices($row->id);
-                        foreach ($stmt as $serv) {
-                            echo '<li><a class="grey-text text-lighten-3" href="#!">' . $serv->name . '</a></li>';
-                        }
-                        echo '</ul>
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="col l6 s12">
+                                      <h5 class="white-text">Servicios</h5>
+                                        <ul>';
+                                    $stmt = $m->getServices($row->id);
+                                    foreach ($stmt as $serv) {
+                                        echo '<li><a class="grey-text text-lighten-3" href="#!">' . $serv->name . '</a></li>';
+                                    }
+                                    echo '</ul>
+                                    </div>
+                                    <div class="col l4 offset-l2 s12">
+                                      <h5 class="white-text">Links</h5>
+                                      <ul>';
+                                    echo '<li><a class="grey-text text-lighten-3" href="#!">Medidas ' . $row->measures . '</a></li>
+                                         <li><a class="grey-text text-lighten-3" href="#!">Edad ' . $row->age . '</a></li>
+                                         <li><a class="grey-text text-lighten-3" href="#!">Fuma ' . $row->smoking . '</a></li>
+                                    </ul>
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
-                            </div>
-                            <div class="footer-copyright" style="font-size:15pt;">
-                              <div class="container">
-                              Tarifa
-                              <a class="grey-text text-lighten-4 right" href="#!">$' . $row->price . '</a>
-                              </div>
-                            </div>
-                          </footer>';
+                                <div  class="footer-copyright" style="font-size:15pt;">
+                                  <div class="container">
+                                  Tarifa
+                                  <a class="grey-text text-lighten-4 right" href="#!">$' . $row->price . '</a>
+                                  </div>
+                                </div>
+                              </footer>';
                         echo '<div class="card-panel"><div class="carousel center">';
                         $files = glob(ROOT_PATH . $row->album . '*');
-                        foreach ($files as $file) {
-                            //echo '<a class="carousel-item" onclick="galeria(\''.basename($file).'\');"><img src="' . HTTP_PATH . $row->album . basename($file) . '"></a>';
-                            echo '<a class="carousel-item" onclick="galeria(\''.$row->id.'\');"><img src="' . HTTP_PATH . $row->album . basename($file) . '"></a>';
-                        }
+                        $gallery = array();
+                        $index = 0;
+                        $token = uniqid();
+                        foreach ($files as $file) {                            
+                            $value = HTTP_PATH . $row->album . basename($file);
+                            array_push($gallery,$value);
+                            echo '<a class="carousel-item" onclick="galeria('.$index.',\''.$token.'\');"><img src="' . HTTP_PATH . $row->album . basename($file) . '"></a>';
+                            $index++;
+                        }                        
                         echo '</div></div>
                             </div>
                             <div class="gallery-action">
                                 <a class="btn-floating btn-large waves-effect waves-light" href="#modal1"><i class="material-icons dp48">textsms</i></a>
-                                <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">favorite</i></a>
                             </div>                   
                         </div>
                     </div>';
+                       $_SESSION[$token] = $gallery;
+                       $_SESSION["name".$token] = $row->name;
                     }
                     ?>
                 </div>            

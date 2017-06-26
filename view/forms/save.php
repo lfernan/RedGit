@@ -22,6 +22,8 @@ if (isset($_FILES["nick_picture"])) {
     $user->price = $_POST['price'];
     $user->location = $_POST['location'];
     $user->mail = $_POST['mail'];
+    //$user->user = $_POST['user'];
+    //$user->pass = $_POST['pass'];
     $user->published = 1;
 
     if ($_FILES["nick_picture"]["error"] > 0) {
@@ -33,11 +35,11 @@ if (isset($_FILES["nick_picture"])) {
         $nombre = uniqid() . getExtension($_FILES["nick_picture"]["tmp_name"]);
         move_uploaded_file($_FILES["nick_picture"]["tmp_name"], $nick . $nombre);
         $user->nick = "uploads/" . $id_dir . $nombre;
-        if($_FILES["video"]["error"] > 0){
-        mkdir($nick . "video");
-        $video = $nick . "video/" . $_FILES["video"]["name"];
-        $user->video = "uploads/" . $id_dir . "video/" . $_FILES["video"]["name"];
-        move_uploaded_file($_FILES["video"]["tmp_name"], $video);
+        if ($_FILES["video"]["size"] > 0) {
+            mkdir($nick . "video");
+            $video = $nick . "video/" . $_FILES["video"]["name"];
+            $user->video = "uploads/" . $id_dir . "video/" . $_FILES["video"]["name"];
+            move_uploaded_file($_FILES["video"]["tmp_name"], $video);
         }
     }
 
@@ -51,12 +53,12 @@ if (isset($_FILES["nick_picture"])) {
             move_uploaded_file($nombre_tmp, $album . $nombre);
         }
         $idUser = $m->insertUser($user);
-        $services = $_POST['services'];
-        for ($i = 0; $i < count($services); $i++) {
-            echo 'count '.count($services).'<br>';
-            echo 'id '.$services[$i].'<br>';
-            $m->insertUserService($idUser, $services[$i]);
+        if (isset($_POST['services'])) {
+            $services = $_POST['services'];
+            for ($i = 0; $i < count($services); $i++) {
+                $m->insertUserService($idUser, $services[$i]);
+            }
         }
-    }
+    }    
 }
 ?>

@@ -12,7 +12,7 @@ $(document).ready(function () {
                 indicators: true,
                 fullWidth: true
             });
-            Materialize.toast('I am a toast!', 4000);
+            //Materialize.toast('I am a toast!', 4000);
         }
     });
 
@@ -28,8 +28,7 @@ $(document).ready(function () {
     $('textarea').characterCounter();
 });
 
-function galeria(n) {
-    console.log(n);
+function galeria(index, token) {
     $('<div id="overlaygallery" class="overlay"></div>').appendTo('body');
-    $("#overlaygallery").load("./view/gallery.php", {n: n});
+    $("#overlaygallery").load("ajax.php", {index: index, token: token, mode: 1});
 }

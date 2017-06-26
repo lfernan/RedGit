@@ -1,8 +1,7 @@
 <?php
-require_once '../model/managed/Managed.php';
-$m = new Managed();
-$id = $_POST['n'];
-$stmt = $m->getUsers($id);
+$gallery = $_SESSION[$_POST['token']];
+$index = $_POST['index'];
+$name = $_SESSION["name".$_POST['token']];
 ?>
 <!--div id="blueimp-gallery-carousel" class="blueimp-gallery blueimp-gallery-carousel"-->
 <div id="blueimp-gallery" class="blueimp-gallery">
@@ -17,12 +16,15 @@ $stmt = $m->getUsers($id);
 
 <div id="links" style="display:none">
     <?php
-    foreach ($stmt as $row) {
-        $files = glob(ROOT_PATH . $row->album . '*');
-        foreach ($files as $file) {
-            echo '<a href="' . HTTP_PATH . $row->album . basename($file) . '" title="Banana">
-                    <img src="' . HTTP_PATH . $row->album . basename($file) . '" alt="Banana">
-                </a>';
+    echo '<a href="' . $gallery[$index] . '" title="'.$name.'">
+          <img src="' . $gallery[$index] . '" alt="'.$name.'">
+          </a>';
+    $size = count($gallery);
+    for ($x = 0; $x < $size; $x++) {
+        if ($x != $index) {
+            echo '<a href="' . $gallery[$x] . '" title="'.$name.'">
+              <img src="' . $gallery[$x] . '" alt="'.$name.'">
+              </a>';
         }
     }
     ?>

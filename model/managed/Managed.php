@@ -95,6 +95,7 @@ class Managed {
 
     public function getUsers($id) {
         try {
+            echo $id;
             if ($id != null) {
                 $stm = $this->conn->prepare("SELECT * FROM users WHERE id = ?");
                 $stm->execute(array($id));                

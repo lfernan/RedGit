@@ -11,7 +11,8 @@ if (isset($_GET['view'])) {
     }
 } else {
     if (MOBILE) {
-        include_once 'view/mobile/MobileContent.php';
+        //include_once 'view/mobile/MobileContent.php';
+        include_once 'view/desktop/DesktopContent.php';
     } else if (DESKTOP) {
         include_once 'view/desktop/DesktopContent.php';
     }

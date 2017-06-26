@@ -5,6 +5,18 @@ $m = new Managed();
     <form class="col s12" action="view/forms/save.php" method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="input-field col s6">
+                <i class="material-icons prefix">perm_identity</i>
+                <input placeholder="Usuario" id="user" name="user" type="text" class="validate">
+                <label for="user">Usuario</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">vpn_key</i>
+                <input placeholder="Contraseña" id="pass" name="age" type="password" class="validate">
+                <label for="pass">Contraseña</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
                 <i class="material-icons prefix">account_circle</i>
                 <input placeholder="Nombre" id="name" name="name" type="text" class="validate">
                 <label for="name">Nombre</label>
@@ -66,7 +78,7 @@ $m = new Managed();
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">email</i>
-                <input id="mail" name="mail" type="text" class="validate">
+                <input id="mail" name="mail" type="email" class="validate">
                 <label for="mail">E-mail</label>
             </div>
         </div>
@@ -103,7 +115,7 @@ $m = new Managed();
                 <label for="description">Descripcion sobre ti</label>
             </div>
         </div>
-        <div class="row">
+        <!--div class="row">
             <span>Publica</span>
             <div class="switch">            
                 <label>
@@ -113,12 +125,11 @@ $m = new Managed();
                     SI
                 </label>
             </div>
-        </div>        
+        </div-->        
         <div class="row center-align">            
             <!--a type="submit" onclick="guardar()" class="waves-effect waves-light btn-large"><i class="material-icons left">check</i>Guardar</a-->
             <input type="submit" class="waves-effect waves-light btn-large" value="Guardar"/>
         </div>
-        <input type="submit" value="Submit"/>
     </form>
 </div>
 <script src="js/data.js"></script>

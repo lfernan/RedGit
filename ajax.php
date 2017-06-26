@@ -1,23 +1,14 @@
 <?php
 
+include_once 'core/core.php';
 if ($_POST) {
-
-    include_once 'core/core.php';
-    include_once 'core/header.php';
-
-    switch (isset($_GET['mode']) ? $_GET['mode'] : null) {
-        case 'data':
-            //require('view/forms/data.php');
-            echo 'se hizo el POST y se detecto el data';
+    switch (isset($_POST['mode']) ? $_POST['mode'] : null) {
+        case 1:
+            include('view/gallery.php');
             break;
         default:
-            echo 'se hizo el POST y NO se detecto el data';
-            //header('location: index.php');
+            header('location: index.php');
             break;
     }
-    include_once 'core/footer.php';
-} else {
-    echo 'no se hizo el POST';
-    //header('location: index.php');
 }
 ?>
