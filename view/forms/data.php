@@ -5,18 +5,6 @@ $m = new Managed();
     <form class="col s12" action="view/forms/save.php" method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="input-field col s6">
-                <i class="material-icons prefix">perm_identity</i>
-                <input placeholder="Usuario" id="user" name="user" type="text" class="validate">
-                <label for="user">Usuario</label>
-            </div>
-            <div class="input-field col s6">
-                <i class="material-icons prefix">vpn_key</i>
-                <input placeholder="Contraseña" id="pass" name="age" type="password" class="validate">
-                <label for="pass">Contraseña</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s6">
                 <i class="material-icons prefix">account_circle</i>
                 <input placeholder="Nombre" id="name" name="name" type="text" class="validate">
                 <label for="name">Nombre</label>

@@ -97,10 +97,10 @@ class Managed {
         try {
             echo $id;
             if ($id != null) {
-                $stm = $this->conn->prepare("SELECT * FROM users WHERE id = ?");
+                $stm = $this->conn->prepare("SELECT * FROM users WHERE id = ? AND  admin = 0");
                 $stm->execute(array($id));                
             } else {
-                $stm = $this->conn->prepare("SELECT * FROM users");
+                $stm = $this->conn->prepare("SELECT * FROM users WHERE admin = 0");
                 $stm->execute();
             }
 

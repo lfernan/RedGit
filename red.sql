@@ -149,7 +149,8 @@ CREATE TABLE `users` (
   `schedules` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `smoking` tinyint(1) NOT NULL DEFAULT '0',
   `published` tinyint(1) NOT NULL DEFAULT '0',
-  `price` varchar(4) COLLATE utf8_spanish_ci DEFAULT NULL
+  `price` varchar(4) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `admin` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 
