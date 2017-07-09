@@ -9,24 +9,34 @@ function encrypt($string) {
     return md5($str);
 }
 
+function randomString() {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < 6; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+
 function toPNG($img) {
     $newpng = null;
     $png = null;
     if (exif_imagetype($img) == IMAGETYPE_GIF) {
-        $newpng = uniqid().'.png';
+        $newpng = uniqid() . '.png';
         $png = imagepng(imagecreatefromgif($_FILES['image']['tmp_name']), $newpng);
     } elseif (exif_imagetype($_FILES['image']['tmp_name']) == IMAGETYPE_JPEG) {
-        $newpng = uniqid().'.png';
+        $newpng = uniqid() . '.png';
         $png = imagepng(imagecreatefromjpeg($_FILES['image']['tmp_name']), $newpng);
     } else {
-        $newpng = uniqid().'.png';
+        $newpng = uniqid() . '.png';
         $png = imagepng($_FILES['image']['tmp_name'], $newpng);
     }
     return $png;
 }
 
-function getExtension($img){
-    if (exif_imagetype($img) ==  IMAGETYPE_GIF) {        
+function getExtension($img) {
+    if (exif_imagetype($img) == IMAGETYPE_GIF) {
         return ".gif";
     } elseif (exif_imagetype($img) == IMAGETYPE_JPEG) {
         return ".jpeg";

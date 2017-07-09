@@ -96,7 +96,7 @@ class Managed {
     public function getLogin($data, $pass) {
         try {
 
-            $stm = $this->conn->prepare("SELECT * FROM users WHERE (user = ? OR mail = ?) AND pass = ? LIMIT 1;");
+            $stm = $this->conn->prepare("SELECT * FROM users WHERE (user = ? OR mail = ?) AND pass = ?");
             $stm->execute(array($data,
                 $data,
                 $pass));

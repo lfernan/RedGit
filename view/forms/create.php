@@ -1,11 +1,12 @@
 <?php
 
 if ($_POST) {
-    if (!empty($_POST['name']) and ! empty($_POST['pass'])) {
+    if (!empty($_POST['user']) and ! empty($_POST['pass'])) {
         $m = new Managed();
         $user = new Users();
-        $user->name = $_POST['name'];
-        $user->pass = encrypt($_POST['pass']);
+        $user->user = $_POST['user'];
+        //$user->pass = encrypt($_POST['pass']);
+        $user->pass = $_POST['pass'];
         $m->insertUser($user);
     } else {
         echo '<script>Materialize.toast(\'Todos los datos deben estar llenos.\', 4000);</script>';
@@ -19,13 +20,13 @@ if ($_POST) {
             <form class="col s12" action="#" method="post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="input-field col s12" style="color: #B71C1C !important;">
-                        <input id="name" name="name" type="text" class="validate">
-                        <label for="name">Usuario</label>
+                        <input id="user" name="user" type="text" class="validate">
+                        <label for="user">Usuario</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="pass" name="pass" type="text" class="validate">
+                        <?php echo '<input value='.randomString().' id="pass" name="pass" type="text" class="validate">' ?>
                         <label for="pass">Contraseña</label>
                     </div>
                 </div>

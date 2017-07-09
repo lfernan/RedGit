@@ -15,6 +15,7 @@ define('APP_URL', 'http://localhost/Red/');
 
 require_once 'model/db/DBFacade.php';
 require_once 'model/managed/Managed.php';
+require_once 'model/entities/Users.php';
 require_once 'util.php';
 
 if (dispositivo() == 'mobile') {
