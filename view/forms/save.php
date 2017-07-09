@@ -12,7 +12,7 @@ $nombre = null;
 
 if (isset($_FILES["nick_picture"])) {
     $m = new Managed();
-    $user = new Users();
+    $user = $_SESSION['user'];
     $user->name = $_POST['name'];
     $user->public_phone = $_POST['phone'];
     $user->description = $_POST['description'];
@@ -22,8 +22,6 @@ if (isset($_FILES["nick_picture"])) {
     $user->price = $_POST['price'];
     $user->location = $_POST['location'];
     $user->mail = $_POST['mail'];
-    //$user->user = $_POST['user'];
-    //$user->pass = $_POST['pass'];
     $user->published = 1;
 
     if ($_FILES["nick_picture"]["error"] > 0) {
@@ -52,11 +50,12 @@ if (isset($_FILES["nick_picture"])) {
             $user->album = "uploads/" . $id_dir . "album/";
             move_uploaded_file($nombre_tmp, $album . $nombre);
         }
-        $idUser = $m->insertUser($user);
+        
+        $m->editUser($user);
         if (isset($_POST['services'])) {
             $services = $_POST['services'];
             for ($i = 0; $i < count($services); $i++) {
-                $m->insertUserService($idUser, $services[$i]);
+                $m->insertUserService($user->id, $services[$i]);
             }
         }
     }    

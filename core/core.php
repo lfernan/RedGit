@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-date_default_timezone_set('America/Caracas');
+//date_default_timezone_set('America/Caracas');
 
 #Constantes de la APP
 define('JS_PATH', 'http://'.$_SERVER["HTTP_HOST"].'/redgit/js/');

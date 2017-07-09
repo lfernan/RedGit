@@ -17,29 +17,10 @@ class Managed {
 
     public function insertUser(Users $user) {
         try {
-            $stm = $this->conn->prepare("SELECT id FROM users WHERE (user = ? OR mail = ?) LIMIT 1;");
-            $stm->execute(array($user->user,
-                $user->mail));
-
-            if ($stm->rowCount()) {
-                return 1;
-            } else {
-                $this->conn->prepare("INSERT INTO users(age,attention,description,height,measures,name,nick,album,video,public_phone,published,schedules,price) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)")->execute(array(
-                    $user->age,
-                    $user->attention,
-                    $user->description,
-                    $user->height,
-                    $user->measures,
-                    $user->name,
-                    $user->nick,
-                    $user->album,
-                    $user->video,
-                    $user->public_phone,
-                    $user->published,
-                    $user->schedules,
-                    $user->price));
-                return $this->conn->lastInsertId();
-            }
+            $this->conn->prepare("INSERT INTO users(user,pass) VALUES (?,?)")->execute(array(
+                $user->user,
+                $user->pass));
+            return $this->conn->lastInsertId();
         } catch (Exception $e) {
             die($e->getMessage());
         }
@@ -48,8 +29,8 @@ class Managed {
     public function editUser(Users $user) {
         try {
             $this->conn->prepare("UPDATE users SET name = ?,
-                                                   nick_picture = ?,
-                                                   pictures = ?,
+                                                   nick = ?,
+                                                   video = ?,
                                                    public_phone = ?,
                                                    sex = ?,
                                                    description = ?,
@@ -59,11 +40,12 @@ class Managed {
                                                    weight = ?,
                                                    attention = ?,
                                                    schedules = ?,
-                                                   smoking = ? 
+                                                   smoking = ?,
+                                                   album = ?
                                                    WHERE id = ?")->execute(array(
                 $user->name,
-                $user->nick_picture,
-                $user->pictures,
+                $user->nick,
+                $user->video,
                 $user->public_phone,
                 $user->sex,
                 $user->description,
@@ -74,6 +56,7 @@ class Managed {
                 $user->attention,
                 $user->schedules,
                 $user->smoking,
+                $user->album,
                 $user->id
             ));
 
@@ -98,7 +81,7 @@ class Managed {
             echo $id;
             if ($id != null) {
                 $stm = $this->conn->prepare("SELECT * FROM users WHERE id = ? AND  admin = 0");
-                $stm->execute(array($id));                
+                $stm->execute(array($id));
             } else {
                 $stm = $this->conn->prepare("SELECT * FROM users WHERE admin = 0");
                 $stm->execute();
@@ -156,7 +139,7 @@ class Managed {
                 $stm = $this->conn->prepare("SELECT name FROM service INNER JOIN userservice ON userservice.service_id = service.id
                                             AND userservice.user_id = ?");
                 $stm->execute(array($user));
-            }            
+            }
             return $stm->fetchAll(PDO::FETCH_CLASS);
         } catch (Exception $e) {
             die($e->getMessage());

@@ -79,7 +79,7 @@ $m = new Managed();
                                   </video></div></div>';
                         }
                         echo '<div class="card-panel">';
-                        echo '<span class="red-text text-darken-4" style="font-style: italic;">"'.$row->description.'"</span>';
+                        echo '<span class="red-text text-darken-4" style="font-style:italic;font-size:large;">"'.$row->description.'"</span>';
                         echo '</div>';
                         echo '<footer class="page-footer red darken-4">
                                 <div class="container">
