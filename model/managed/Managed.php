@@ -17,9 +17,10 @@ class Managed {
 
     public function insertUser(Users $user) {
         try {
-            $this->conn->prepare("INSERT INTO users(user,pass) VALUES (?,?)")->execute(array(
+            $this->conn->prepare("INSERT INTO users(user,pass,published) VALUES (?,?,?)")->execute(array(
                 $user->user,
-                $user->pass));
+                $user->pass,
+                0));
             return $this->conn->lastInsertId();
         } catch (Exception $e) {
             die($e->getMessage());
@@ -83,7 +84,7 @@ class Managed {
                 $stm = $this->conn->prepare("SELECT * FROM users WHERE id = ? AND  admin = 0");
                 $stm->execute(array($id));
             } else {
-                $stm = $this->conn->prepare("SELECT * FROM users WHERE admin = 0");
+                $stm = $this->conn->prepare("SELECT * FROM users WHERE admin = 0 and published = 1");
                 $stm->execute();
             }
 
