@@ -69,23 +69,10 @@ CREATE TABLE `message` (
   `user_from_id` int(10) NOT NULL,
   `user_to_id` int(10) NOT NULL,
   `description` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `date_hour` date DEFAULT NULL,
+  `date_hour` timestamp DEFAULT CURRENT_TIMESTAMP,
   `check` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `message`
---
-
-INSERT INTO `message` (`id`, `user_from_id`, `user_to_id`, `description`, `date_hour`, `check`) VALUES
-(1, 1, 0, 'Mensaje 1', '2017-03-29', 1),
-(2, 2, 0, 'Mensaje 2', '2017-03-29', 1),
-(3, 3, 0, 'Mensaje 3', '2017-03-29', 1),
-(4, 4, 0, 'Mensaje 4', '2017-03-29', 1),
-(5, 5, 0, 'Mensaje 5', '2017-03-29', 1),
-(6, 6, 0, 'Mensaje 6', '2017-03-29', 1);
-
--- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `service`

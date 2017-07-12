@@ -5,16 +5,21 @@ $m = new Managed();
 <nav class="nav-extended blue-grey darken-4">
     <div class="nav-background">
         <!--div class="pattern active" style="background-image: url('http://placehold.it/1400x300');"></div-->
-        <?php echo '<div class="pattern active" style="background-image: url(\''. HTTP_PATH .'images/sexy_legs_black.jpg\');"></div>'; ?>
+        <?php echo '<div class="pattern active" style="background-image: url(\'' . HTTP_PATH . 'images/sexy_legs_black.jpg\');"></div>'; ?>
     </div>
     <div class="nav-wrapper container">
         <a href="index.html" class="brand-logo" style="color:#B71C1C;"><i class="material-icons">star</i>Red</a>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-            <li class="active"><a href="index.html">Gallery</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="docs.html">Docs</a></li>
-            <li><a class='dropdown-button' href='#' data-activates='feature-dropdown' data-belowOrigin="true" data-constrainWidth="false">Features<i class="material-icons right">arrow_drop_down</i></a></li>
+            <?php
+            if (!isset($_SESSION['user'])) {
+                echo '<li><a href="?view=login">Ingresar</a></li>';
+            } else {
+                echo '<li><a href="?view=data">' . $_SESSION['user']->user . '</a></li>';
+                echo '<li><a href="?view=logout">Cerrar Sesion</a></li>';
+            }
+            ?>
+            <li><a href="docs.html">Contacto</a></li>
         </ul>
         <!-- Dropdown Structure -->
         <ul id='feature-dropdown' class='dropdown-content'>
@@ -43,12 +48,15 @@ $m = new Managed();
 
 <!-- Menu Gallery -->
 <ul class="side-nav red darken-4" id="nav-mobile">
-    <li class="active"><a href="index.html"><i class="material-icons">camera</i>Gallery</a></li>
-    <li><a href="blog.html"><i class="material-icons">edit</i>Blog</a></li>
-    <li><a href="docs.html"><i class="material-icons">school</i>Docs</a></li>
-    <li><a href="full-header.html"><i class="material-icons">fullscreen</i>Fullscreen Header</a></li>
-    <li><a href="horizontal.html"><i class="material-icons">swap_horiz</i>Horizontal Style</a></li>
-    <li><a href="no-image.html"><i class="material-icons">texture</i>No Image Expand</a></li>
+    <?php
+    if (!isset($_SESSION['user'])) {
+        echo '<li><a href="?view=login"><i class="material-icons">edit</i>Ingresar</a></li>';
+    } else {
+        echo '<li><a href="?view=data"><i class="material-icons">school</i>' . $_SESSION['user']->user . '</a></li>';
+        echo '<li><a href="?view=logout"><i class="material-icons">edit</i>Cerrar Sesion</a></li>';
+    }
+    ?>
+    <li><a href="docs.html"><i class="material-icons">school</i>Contacto</a></li>
 </ul>
 
 <div class="row">
@@ -79,7 +87,7 @@ $m = new Managed();
                                   </video></div></div>';
                         }
                         echo '<div class="card-panel">';
-                        echo '<span class="red-text text-darken-4" style="font-style:italic;font-size:large;">"'.$row->description.'"</span>';
+                        echo '<span class="red-text text-darken-4" style="font-style:italic;font-size:large;">"' . $row->description . '"</span>';
                         echo '</div>';
                         echo '<footer class="page-footer red darken-4">
                                 <div class="container">
@@ -87,16 +95,16 @@ $m = new Managed();
                                     <div class="col l6 s12">
                                       <h5 class="white-text">Servicios</h5>
                                         <ul>';
-                                    $stmt = $m->getServices($row->id);
-                                    foreach ($stmt as $serv) {
-                                        echo '<li><a class="grey-text text-lighten-3" href="#!">' . $serv->name . '</a></li>';
-                                    }
-                                    echo '</ul>
+                        $stmt = $m->getServices($row->id);
+                        foreach ($stmt as $serv) {
+                            echo '<li><a class="grey-text text-lighten-3" href="#!">' . $serv->name . '</a></li>';
+                        }
+                        echo '</ul>
                                     </div>
                                     <div class="col l4 offset-l2 s12">
                                       <h5 class="white-text">Links</h5>
                                       <ul>';
-                                    echo '<li><a class="grey-text text-lighten-3" href="#!">Medidas ' . $row->measures . '</a></li>
+                        echo '<li><a class="grey-text text-lighten-3" href="#!">Medidas ' . $row->measures . '</a></li>
                                          <li><a class="grey-text text-lighten-3" href="#!">Edad ' . $row->age . '</a></li>
                                          <li><a class="grey-text text-lighten-3" href="#!">Fuma ' . $row->smoking . '</a></li>
                                     </ul>
@@ -115,12 +123,12 @@ $m = new Managed();
                         $gallery = array();
                         $index = 0;
                         $token = uniqid();
-                        foreach ($files as $file) {                            
+                        foreach ($files as $file) {
                             $value = HTTP_PATH . $row->album . basename($file);
-                            array_push($gallery,$value);
-                            echo '<a class="carousel-item" onclick="galeria('.$index.',\''.$token.'\');"><img src="' . HTTP_PATH . $row->album . basename($file) . '"></a>';
+                            array_push($gallery, $value);
+                            echo '<a class="carousel-item" onclick="galeria(' . $index . ',\'' . $token . '\');"><img src="' . HTTP_PATH . $row->album . basename($file) . '"></a>';
                             $index++;
-                        }                        
+                        }
                         echo '</div></div>
                             </div>
                             <div class="gallery-action">
@@ -128,8 +136,8 @@ $m = new Managed();
                             </div>                   
                         </div>
                     </div>';
-                       $_SESSION[$token] = $gallery;
-                       $_SESSION["name".$token] = $row->name;
+                        $_SESSION[$token] = $gallery;
+                        $_SESSION["name" . $token] = $row->name;
                     }
                     ?>
                 </div>            

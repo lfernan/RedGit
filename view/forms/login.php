@@ -1,9 +1,8 @@
 <?php
 if ($_POST) {
-    if (!empty($_POST['data']) and ! empty($_POST['pass'])) {
-        echo 'Entra al metodo';
+    if (!empty($_POST['data']) and ! empty($_POST['pass'])) {        
         $m = new Managed();
-        $o = $m->getLogin($_POST['data'], encrypt($_POST['pass']));                
+        $o = $m->getLogin($_POST['data'], $_POST['pass']);                
         if ($o == null) {
             echo '<script>Materialize.toast(\'Usuario o clave incorrectos.\', 4000);</script>';
         } else {

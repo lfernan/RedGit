@@ -158,6 +158,15 @@ class Managed {
         }
     }
 
+    public function addMessage($id, $message) {
+        try {
+            $this->conn->prepare("INSERT INTO message(user_from_id,description) VALUES (?,?)")->execute(array(
+                $id, $message));
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
 }
 
 ?>

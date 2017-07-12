@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#measures').mask("00-00-00", {placeholder: "90-60-90"});
+    $('#measures').mask("00-00-00");
     //$('#price').mask("00000", {placeholder: "$"});
 });
 

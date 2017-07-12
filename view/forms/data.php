@@ -18,12 +18,12 @@ $m = new Managed();
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">account_circle</i>
-                    <input placeholder="Nombre" id="name" name="name" type="text" class="validate">
+                    <input value="<?php echo $user->name?>" id="name" name="name" type="text" class="validate">
                     <label for="name">Nombre</label>
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">event</i>
-                    <input placeholder="Edad" id="age" name="age" type="text" class="validate">
+                    <input value="<?php echo $user->age?>" id="age" name="age" type="text" class="validate">
                     <label for="age">Edad</label>
                 </div>
             </div>
@@ -61,12 +61,12 @@ $m = new Managed();
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">spa</i>
-                    <input placeholder="90-60-90" id="measures" name="measures" type="text" class="validate">
-                    <label for="measures">Medidas</label>
+                    <input id="measures" name="measures" type="text" class="validate">
+                    <label for="measures">Medidas ej. 90-60-90</label>
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">phone</i>
-                    <input placeholder="Telefono" id="phone" name="phone" type="text" class="validate">
+                    <input id="phone" name="phone" type="text" class="validate">
                     <label for="phone">Telefono</label>
                 </div>
             </div>
@@ -104,7 +104,7 @@ $m = new Managed();
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">query_builder</i>
-                    <input placeholder="Horarios de Atencion" id="schedules" name="schedules" type="text" class="validate">
+                    <input id="schedules" name="schedules" type="text" class="validate">
                     <label for="schedules">Horarios de Atencion</label>
                 </div>
             </div>
