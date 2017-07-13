@@ -3,9 +3,66 @@ if (!isset($_SESSION['user'])) {
     header('location: ?view=login');
 }
 
-$user = $_SESSION['user'];
-
+$user = new Users();
+$user->id = $_SESSION['user']->id;
 $m = new Managed();
+$dir = $_SERVER["DOCUMENT_ROOT"] . '/RedGit/uploads/';
+$nick = null;
+$album = null;
+$video = null;
+$id_dir = null;
+$nombre = null;
+
+if ($_POST) {
+    if (isset($_FILES["nick_picture"])) {
+        $user->name = $_POST['name'];
+        $user->public_phone = $_POST['phone'];
+        $user->description = $_POST['description'];
+        $user->age = $_POST['age'];
+        $user->measures = $_POST['measures'];
+        $user->schedules = $_POST['schedules'];
+        $user->price = $_POST['price'];
+        $user->location = $_POST['location'];
+        $user->mail = $_POST['mail'];
+        $user->published = 1;
+
+        if ($_FILES["nick_picture"]["error"] > 0) {
+            echo 'Error ' . $_FILES["file"]["error"] . "<br>";
+        } else {
+            $id_dir = uniqid() . "/";
+            $nick = $dir . $id_dir;
+            mkdir($nick);
+            $nombre = uniqid() . getExtension($_FILES["nick_picture"]["tmp_name"]);
+            move_uploaded_file($_FILES["nick_picture"]["tmp_name"], $nick . $nombre);
+            $user->nick = "uploads/" . $id_dir . $nombre;
+            if ($_FILES["video"]["size"] > 0) {
+                mkdir($nick . "video");
+                $video = $nick . "video/" . $_FILES["video"]["name"];
+                $user->video = "uploads/" . $id_dir . "video/" . $_FILES["video"]["name"];
+                move_uploaded_file($_FILES["video"]["tmp_name"], $video);
+            }
+        }
+
+        if ($_FILES['pictures']['size'] > 0) {
+            $album = $nick . "album/";
+            mkdir($album);
+            foreach ($_FILES['pictures']['error'] as $clave => $error) {
+                $nombre_tmp = $_FILES["pictures"]["tmp_name"][$clave];
+                $nombre = uniqid() . getExtension($_FILES["pictures"]["tmp_name"][$clave]);
+                $user->album = "uploads/" . $id_dir . "album/";
+                move_uploaded_file($nombre_tmp, $album . $nombre);
+            }
+
+            $m->editUser($user);
+            if (isset($_POST['services'])) {
+                $services = $_POST['services'];
+                for ($i = 0; $i < count($services); $i++) {
+                    $m->insertUserService($user->id, $services[$i]);
+                }
+            }
+        }
+    }
+}
 ?>
 <style>
     body{
@@ -14,16 +71,16 @@ $m = new Managed();
 </style>
 <div class="container">
     <div class="row">
-        <form class="col s12" action="view/forms/save.php" method="post" enctype="multipart/form-data">
+        <form class="col s12" action="#" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">account_circle</i>
-                    <input value="<?php echo $user->name?>" id="name" name="name" type="text" class="validate">
+                    <input value="<?php echo $user->name ?>" id="name" name="name" type="text" class="validate">
                     <label for="name">Nombre</label>
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">event</i>
-                    <input value="<?php echo $user->age?>" id="age" name="age" type="text" class="validate">
+                    <input value="<?php echo $user->age ?>" id="age" name="age" type="text" class="validate">
                     <label for="age">Edad</label>
                 </div>
             </div>
