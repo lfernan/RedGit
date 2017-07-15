@@ -6,9 +6,9 @@ if ($_POST) {
         if ($o == null) {
             echo '<script>Materialize.toast(\'Usuario o clave incorrectos.\', 4000);</script>';
         } else {
-            if ($_POST['sesion']) {
+            /*if ($_POST['sesion']) {
                 ini_set('session.cookie_lifetime', time() + (60 * 60 * 24));
-            }
+            }*/
             $_SESSION['user'] = $o;
             header('location: index.php');
         }

@@ -15,7 +15,9 @@ $m = new Managed();
             if (!isset($_SESSION['user'])) {
                 echo '<li><a href="?view=login">Ingresar</a></li>';
             } else {
-                echo '<li><a href="?view=data">' . $_SESSION['user']->user . '</a></li>';
+                echo '<li><a href="#">' . $_SESSION['user']->user . '</a></li>';
+                echo '<li><a href="?view=data">Datos</a></li>';
+                echo '<li><a href="?view=message">Mensajes</a></li>';
                 echo '<li><a href="?view=logout">Cerrar Sesion</a></li>';
             }
             ?>
@@ -93,7 +95,7 @@ $m = new Managed();
                                 <div class="container">
                                   <div class="row">
                                     <div class="col l6 s12">
-                                      <h5 class="white-text">Servicios</h5>
+                                      <h5 class="white-text" style="text-decoration: underline;">Servicios</h5>
                                         <ul>';
                         $stmt = $m->getServices($row->id);
                         foreach ($stmt as $serv) {
@@ -102,11 +104,11 @@ $m = new Managed();
                         echo '</ul>
                                     </div>
                                     <div class="col l4 offset-l2 s12">
-                                      <h5 class="white-text">Links</h5>
+                                      <h5 class="white-text" style="text-decoration: underline;">Sobre mi</h5>
                                       <ul>';
-                        echo '<li><a class="grey-text text-lighten-3" href="#!">Medidas ' . $row->measures . '</a></li>
-                                         <li><a class="grey-text text-lighten-3" href="#!">Edad ' . $row->age . '</a></li>
-                                         <li><a class="grey-text text-lighten-3" href="#!">Fuma ' . $row->smoking . '</a></li>
+                        echo '<li><a class="grey-text text-lighten-3" href="#!">Medidas '.$row->measures.'</a></li>
+                                         <li><a class="grey-text text-lighten-3" href="#!">Edad '.$row->age.'</a></li>
+                                         <li><a class="grey-text text-lighten-3" href="#!">Fuma '.$row->smoking. '</a></li>
                                     </ul>
                                     </div>
                                   </div>
@@ -114,7 +116,7 @@ $m = new Managed();
                                 <div  class="footer-copyright" style="font-size:15pt;">
                                   <div class="container">
                                   Tarifa
-                                  <a class="grey-text text-lighten-4 right" href="#!">$' . $row->price . '</a>
+                                  <a class="grey-text text-lighten-4 right" href="#!">'.(empty($row->price)?'Consultar':'$'.$row->price).'</a>
                                   </div>
                                 </div>
                               </footer>';
@@ -151,7 +153,7 @@ $m = new Managed();
                 $stmt = $m->getMessages(null);
                 foreach ($stmt as $row) {
                     echo '<li class="collection-item avatar">
-                <img src="http://image.shutterstock.com/z/stock-vector-islamic-woman-front-face-cartoon-avatar-icon-446589853.jpg" alt="" height="20px" width="20px" class="circle">                
+                <img src="'.HTTP_PATH.$row->nick.'" alt="" height="20px" width="20px" class="circle">                
                 <p>' . $row->name . '<br>' . $row->description . '</p>
             </li>';
                 }

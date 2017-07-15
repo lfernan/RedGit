@@ -26,9 +26,7 @@ if ($_POST) {
         $user->mail = $_POST['mail'];
         $user->published = 1;
 
-        if ($_FILES["nick_picture"]["error"] > 0) {
-            echo 'Error ' . $_FILES["file"]["error"] . "<br>";
-        } else {
+        if ($_FILES["nick_picture"]["size"] > 0) {
             $id_dir = uniqid() . "/";
             $nick = $dir . $id_dir;
             mkdir($nick);
@@ -59,6 +57,8 @@ if ($_POST) {
                 for ($i = 0; $i < count($services); $i++) {
                     $m->insertUserService($user->id, $services[$i]);
                 }
+            } else {
+                $m->insertUserService($user->id, 1);
             }
         }
     }
@@ -75,12 +75,12 @@ if ($_POST) {
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">account_circle</i>
-                    <input value="<?php echo $user->name ?>" id="name" name="name" type="text" class="validate">
+                    <input  id="name" name="name" type="text" class="validate" required="true">
                     <label for="name">Nombre</label>
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">event</i>
-                    <input value="<?php echo $user->age ?>" id="age" name="age" type="text" class="validate">
+                    <input  id="age" name="age" type="text" class="validate" required="true">
                     <label for="age">Edad</label>
                 </div>
             </div>
@@ -89,7 +89,7 @@ if ($_POST) {
                     <div class="btn">
                         <span>Foto de Perfil</span>
                         <!--input type="hidden" name="MAX_FILE_SIZE" value="30000"/-->
-                        <input id="nick_picture" name="nick_picture" type="file">
+                        <input id="nick_picture" name="nick_picture" type="file" required="true">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text">
@@ -108,7 +108,7 @@ if ($_POST) {
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>Fotos</span>
-                        <input id="pictures" name="pictures[]" type="file" multiple>
+                        <input id="pictures" name="pictures[]" type="file" multiple required="true">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" placeholder="Subir uno o mas archivos">
@@ -118,19 +118,19 @@ if ($_POST) {
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">spa</i>
-                    <input id="measures" name="measures" type="text" class="validate">
+                    <input id="measures" name="measures" type="text" class="validate" required="true">
                     <label for="measures">Medidas ej. 90-60-90</label>
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">phone</i>
-                    <input id="phone" name="phone" type="text" class="validate">
+                    <input id="phone" name="phone" type="text" class="validate" required="true">
                     <label for="phone">Telefono</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">room</i>
-                    <input id="location" name="location" type="text" class="validate">
+                    <input id="location" name="location" type="text" class="validate" required="true">
                     <label for="location">Zona</label>
                 </div>
                 <div class="input-field col s6">
@@ -161,14 +161,14 @@ if ($_POST) {
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">query_builder</i>
-                    <input id="schedules" name="schedules" type="text" class="validate">
+                    <input id="schedules" name="schedules" type="text" class="validate" required="true">
                     <label for="schedules">Horarios de Atencion</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">comment</i>
-                    <textarea id="description" name="description" class="materialize-textarea" data-length="400"></textarea>
+                    <textarea id="description" name="description" required="true" class="materialize-textarea" data-length="400"></textarea>
                     <label for="description">Descripcion sobre ti</label>
                 </div>
             </div>

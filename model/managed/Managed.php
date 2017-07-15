@@ -42,7 +42,10 @@ class Managed {
                                                    attention = ?,
                                                    schedules = ?,
                                                    smoking = ?,
-                                                   album = ?
+                                                   album = ?,
+                                                   price = ?,
+                                                   published = ?,
+                                                   location = ?
                                                    WHERE id = ?")->execute(array(
                 $user->name,
                 $user->nick,
@@ -58,6 +61,9 @@ class Managed {
                 $user->schedules,
                 $user->smoking,
                 $user->album,
+                $user->price,
+                $user->published,
+                $user->location,
                 $user->id
             ));
 
@@ -113,12 +119,12 @@ class Managed {
     public function getMessages($user) {
         try {
             if ($user != null) {
-                $stm = $this->conn->prepare("SELECT users.name,message.description,message.date_hour FROM message
+                $stm = $this->conn->prepare("SELECT users.nick,users.name,message.description,message.date_hour FROM message
                                             INNER JOIN users ON users.id = message.user_from_id 
                                             and message.user_from_id = ?");
                 $stm->execute(array($user));
             } else {
-                $stm = $this->conn->prepare("SELECT users.name,message.description,message.date_hour FROM message
+                $stm = $this->conn->prepare("SELECT users.nick,users.name,message.description,message.date_hour FROM message
                                             INNER JOIN users ON users.id = message.user_from_id");
                 $stm->execute();
             }

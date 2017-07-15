@@ -1,5 +1,13 @@
 <?php
 
+if (!isset($_SESSION['user'])) {
+    header('location: ?view=login');
+}else{
+    if($_SESSION['user']->admin != 1){
+        header('location:'.HTTP_PATH);
+    }
+}
+
 if ($_POST) {
     if (!empty($_POST['user']) and ! empty($_POST['pass'])) {
         $m = new Managed();
