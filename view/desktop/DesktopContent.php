@@ -62,7 +62,7 @@ $m = new Managed();
 </ul>
 
 <div class="row" id="contenido">
-    <div class="col s9">
+    <div class="col s12 m9 l9">
         <!-- Gallery -->          
         <div id="portfolio" class="section gray">
             <div class="container">                        
@@ -70,7 +70,7 @@ $m = new Managed();
                     <?php
                     $stmt = $m->getUsers(null);
                     foreach ($stmt as $row) {
-                        echo '<div class="col l4 m6 s12 gallery-item gallery-expand gallery-filter ' . $row->sex . '">
+                        echo '<div class="col s4 gallery-item gallery-expand gallery-filter ' . $row->sex . '">
                         <div class="gallery-curve-wrapper">
                             <a class="gallery-cover gray">
                                 <img class="responsive-img" src="' . HTTP_PATH . $row->nick . '" alt="placeholder">
@@ -88,10 +88,10 @@ $m = new Managed();
                                     <source src="' . HTTP_PATH . $row->video . '" type="video/mp4">
                                   </video></div></div>';
                         }
-                        echo '<div class="card-panel">';
+                        echo '<div class="card-panel hoverable">';
                         echo '<span class="red-text text-darken-4" style="font-style:italic;font-size:large;">"' . $row->description . '"</span>';
                         echo '</div>';
-                        echo '<footer class="page-footer red darken-4">
+                        echo '<footer class="page-footer red darken-4 hoverable">
                                 <div class="container">
                                   <div class="row">
                                     <div class="col l6 s12">
@@ -123,7 +123,15 @@ $m = new Managed();
                                   </div>
                                 </div>
                               </footer>';
-                        echo '<div class="card-panel"><div class="carousel center">';
+                        echo '<ul id="tabs-swipe-demo" class="tabs">
+    <li class="tab col s3"><a href="#test-swipe-1">Test 1</a></li>
+    <li class="tab col s3"><a class="active" href="#test-swipe-2">Test 2</a></li>
+    <li class="tab col s3"><a href="#test-swipe-3">Test 3</a></li>
+  </ul>
+  <div id="test-swipe-1" class="col s12 blue">Test 1</div>
+  <div id="test-swipe-2" class="col s12 red">Test 2</div>
+  <div id="test-swipe-3" class="col s12 green">Test 3</div>';
+                        echo '<div class="card-panel hoverable"><div class="carousel center">';
                         $files = glob(ROOT_PATH . $row->album . '*');
                         $gallery = array();
                         $index = 0;
@@ -149,20 +157,20 @@ $m = new Managed();
             </div>
         </div>
     </div>
-    <div id="colmensajes" class="col s3" style="background-color: #B71C1C">
-        <div id="mensajes" class="collection" style="border:none;">
-            <ul class="bxslider">
+    <div class="col s12 m3 l3">
+        <!--div id="mensajes" class="collection z-depth-5" style="border:none;"-->
+            <ul class="bxslider collection z-depth-5">
                 <?php
                 $stmt = $m->getMessages(null);
                 foreach ($stmt as $row) {
                     echo '<li class="collection-item avatar">
                             <img src="'.HTTP_PATH.$row->nick.'" alt="" height="20px" width="20px" class="circle">                
-                            <p>' . $row->name . '<br>' . $row->description . '</p>
+                            <p>' . $row->name . '<br>' . $row->description . '</p>                            
                           </li>';
                 }
                 ?>
             </ul>
         </div>
-    </div>
+    <!--/div-->
 </div>
 

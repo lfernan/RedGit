@@ -71,7 +71,7 @@ if ($_POST) {
 ?>
 <style>
     body{
-        background-color: #263238 !important;
+        /*background-color: #263238 !important;*/
     }
 </style>
 <div class="container">

@@ -12,19 +12,16 @@ $(document).ready(function () {
                 indicators: true,
                 fullWidth: true
             });
-            //Materialize.toast('I am a toast!', 4000);
+            //resizeMessage();
         }
     });
 
     $('.bxslider').bxSlider({
         onSliderLoad: function () {
-            var contenido = $('#contenido');
-            $('#colmensajes').css("height", contenido.height() + "px");
-            $('#mensajes').css("height", contenido.height() + "px");
-            $('.bx-wrapper .bx-viewport').css("height", contenido.height() - 50 + "px");
+            //resizeMessage();
         },
         minSlides: 4,
-        maxSlides: 40,
+        maxSlides: 4,
         ticker: true,
         speed: 10000,
         mode: 'vertical',
@@ -36,6 +33,16 @@ $(document).ready(function () {
     $('textarea').characterCounter();
 });
 
+$(window).resize(function () {
+    //resizeMessage();
+});
+
+function resizeMessage() {
+    var contenido = $('#contenido');
+    $('#colmensajes').css("height", contenido.height() + "px");
+    $('#mensajes').css("height", contenido.height() + "px");
+    $('.bx-wrapper .bx-viewport').css("height", contenido.height() - 50 + "px");
+}
 
 function galeria(index, token) {
     $('<div id="overlaygallery" class="overlay"></div>').appendTo('body');
