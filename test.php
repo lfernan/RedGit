@@ -34,29 +34,29 @@ include_once 'core/core.php';
         <script src="js/red.js"></script>
     </head>
     <body>
-<?php
-$m = new Managed();
-?>
+        <?php
+        $m = new Managed();
+        ?>
         <!-- Navbar and Header -->
         <nav class="nav-extended blue-grey darken-4">
             <div class="nav-background">
                 <!--div class="pattern active" style="background-image: url('http://placehold.it/1400x300');"></div-->
-<?php echo '<div class="pattern active" style="background-image: url(\'' . HTTP_PATH . 'images/sexy_legs_black.jpg\');"></div>'; ?>
+                <?php echo '<div class="pattern active" style="background-image: url(\'' . HTTP_PATH . 'images/sexy_legs_black.jpg\');"></div>'; ?>
             </div>
             <div class="nav-wrapper container">
                 <a href="index.html" class="brand-logo" style="color:#B71C1C;"><i class="material-icons">star</i>Red</a>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-<?php
-if (!isset($_SESSION['user'])) {
-    echo '<li><a href="?view=login">Ingresar</a></li>';
-} else {
-    echo '<li><a href="#">' . $_SESSION['user']->user . '</a></li>';
-    echo '<li><a href="?view=data">Datos</a></li>';
-    echo '<li><a href="?view=message">Mensajes</a></li>';
-    echo '<li><a href="?view=logout">Cerrar Sesion</a></li>';
-}
-?>
+                    <?php
+                    if (!isset($_SESSION['user'])) {
+                        echo '<li><a href="?view=login">Ingresar</a></li>';
+                    } else {
+                        echo '<li><a href="#">' . $_SESSION['user']->user . '</a></li>';
+                        echo '<li><a href="?view=data">Datos</a></li>';
+                        echo '<li><a href="?view=message">Mensajes</a></li>';
+                        echo '<li><a href="?view=logout">Cerrar Sesion</a></li>';
+                    }
+                    ?>
                     <li><a href="docs.html">Contacto</a></li>
                 </ul>
                 <!-- Dropdown Structure -->
@@ -86,14 +86,14 @@ if (!isset($_SESSION['user'])) {
 
         <!-- Menu Gallery -->
         <ul class="side-nav red darken-4" id="nav-mobile">
-<?php
-if (!isset($_SESSION['user'])) {
-    echo '<li><a href="?view=login"><i class="material-icons">edit</i>Ingresar</a></li>';
-} else {
-    echo '<li><a href="?view=data"><i class="material-icons">school</i>' . $_SESSION['user']->user . '</a></li>';
-    echo '<li><a href="?view=logout"><i class="material-icons">edit</i>Cerrar Sesion</a></li>';
-}
-?>
+            <?php
+            if (!isset($_SESSION['user'])) {
+                echo '<li><a href="?view=login"><i class="material-icons">edit</i>Ingresar</a></li>';
+            } else {
+                echo '<li><a href="?view=data"><i class="material-icons">school</i>' . $_SESSION['user']->user . '</a></li>';
+                echo '<li><a href="?view=logout"><i class="material-icons">edit</i>Cerrar Sesion</a></li>';
+            }
+            ?>
             <li><a href="docs.html"><i class="material-icons">school</i>Contacto</a></li>
         </ul>
 
@@ -103,10 +103,10 @@ if (!isset($_SESSION['user'])) {
                 <div id="portfolio" class="section gray">
                     <div class="container">                        
                         <div class="gallery row">
-<?php
-$stmt = $m->getUsers(null);
-foreach ($stmt as $row) {
-    echo '<div class="col s4 gallery-item gallery-expand gallery-filter ' . $row->sex . '">
+                            <?php
+                            $stmt = $m->getUsers(null);
+                            foreach ($stmt as $row) {
+                                echo '<div class="col s4 gallery-item gallery-expand gallery-filter ' . $row->sex . '">
                         <div class="gallery-curve-wrapper">
                             <a class="gallery-cover gray">
                                 <img class="responsive-img" src="' . HTTP_PATH . $row->nick . '" alt="placeholder">
@@ -118,31 +118,31 @@ foreach ($stmt as $row) {
                                 <div class="title-wrapper">
                                     <h3 style="color:#b71c1c;">' . $row->name . '</h3>
                                 </div>';
-    if ($row->video != null) {
-        echo '<div class="container">
+                                if ($row->video != null) {
+                                    echo '<div class="container">
                               <div class="row"><video class="responsive-video" controls>
                                     <source src="' . HTTP_PATH . $row->video . '" type="video/mp4">
                                   </video></div></div>';
-    }
-    echo '<div class="card-panel hoverable">';
-    echo '<span class="red-text text-darken-4" style="font-style:italic;font-size:large;">"' . $row->description . '"</span>';
-    echo '</div>';
-    echo '<footer class="page-footer red darken-4 hoverable">
+                                }
+                                echo '<div class="card-panel hoverable">';
+                                echo '<span class="red-text text-darken-4" style="font-style:italic;font-size:large;">"' . $row->description . '"</span>';
+                                echo '</div>';
+                                echo '<footer class="page-footer red darken-4 hoverable">
                                 <div class="container">
                                   <div class="row">
                                     <div class="col l6 s12">
                                       <h5 class="white-text" style="text-decoration: underline;">Servicios</h5>
                                         <ul>';
-    $stmt = $m->getServices($row->id);
-    foreach ($stmt as $serv) {
-        echo '<li><a class="grey-text text-lighten-3" href="#!">' . $serv->name . '</a></li>';
-    }
-    echo '</ul>
+                                $stmt = $m->getServices($row->id);
+                                foreach ($stmt as $serv) {
+                                    echo '<li><a class="grey-text text-lighten-3" href="#!">' . $serv->name . '</a></li>';
+                                }
+                                echo '</ul>
                                     </div>
                                     <div class="col l4 offset-l2 s12">
                                       <h5 class="white-text" style="text-decoration: underline;">Sobre mi</h5>
                                       <ul>';
-    echo '<li><a class="grey-text text-lighten-3" href="#!">Medidas ' . $row->measures . '</a></li>
+                                echo '<li><a class="grey-text text-lighten-3" href="#!">Medidas ' . $row->measures . '</a></li>
                                          <li><a class="grey-text text-lighten-3" href="#!">Edad ' . $row->age . '</a></li>
                                          <li><a class="grey-text text-lighten-3" href="#!">Fuma ' . $row->smoking . '</a></li>
                                          <li><a class="grey-text text-lighten-3" href="#!">Telefono ' . $row->public_phone . '</a></li>
@@ -159,51 +159,83 @@ foreach ($stmt as $row) {
                                   </div>
                                 </div>
                               </footer>';
-    echo '<ul id="tabs-swipe-demo" class="tabs">
-    <li class="tab col s3"><a href="#test-swipe-1">Descripcion</a></li>
-    <li class="tab col s3"><a class="active" href="#test-swipe-2">Test 2</a></li>
-    <li class="tab col s3"><a href="#test-swipe-3">Test 3</a></li>
-  </ul>
-  <div id="test-swipe-1" class="col s12 blue"><span class="red-text text-darken-4" style="font-style:italic;font-size:large;">"' . $row->description . '"</span></div>
-  <div id="test-swipe-2" class="col s12 red">Test 2</div>
-  <div id="test-swipe-3" class="col s12 green">Test 3</div>';
-    echo '<div class="card-panel hoverable"><div class="carousel center">';
-    $files = glob(ROOT_PATH . $row->album . '*');
-    $gallery = array();
-    $index = 0;
-    $token = uniqid();
-    foreach ($files as $file) {
-        $value = HTTP_PATH . $row->album . basename($file);
-        array_push($gallery, $value);
-        echo '<a class="carousel-item" onclick="galeria(' . $index . ',\'' . $token . '\');"><img src="' . HTTP_PATH . $row->album . basename($file) . '"></a>';
-        $index++;
-    }
-    echo '</div></div>
+                                ?>
+                                <footer class = "page-footer">
+                                    <div class = "container">
+                                        <div class="row">
+                                            <div class="col s12">
+                                                <ul class="tabs">
+                                                    <li class="tab col s3"><a href="#test1">Test 1</a></li>
+                                                    <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
+                                                    <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
+                                                    <li class="tab col s3"><a href="#test4">Test 4</a></li>
+                                                </ul>
+                                            </div>
+                                            <div id="test1" class="col s12">
+                                                <div class="col l6 s12">
+                                                    <h5 class="white-text">Footer Content</h5>
+                                                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                                                </div>
+                                                <div class="col l4 offset-l2 s12">
+                                                    <h5 class="white-text">Links</h5>
+                                                    <ul>
+                                                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                                                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                                                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                                                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div id="test2" class="col s12">Test 2</div>
+                                            <div id="test3" class="col s12">Test 3</div>
+                                            <div id="test4" class="col s12">Test 4</div>
+                                        </div>
+                                    </div>
+                                    <div class = "footer-copyright">
+                                        <div class = "container">
+                                            © 2014 Copyright Text
+                                            <a class = "grey-text text-lighten-4 right" href = "#!">More Links</a>
+                                        </div>
+                                    </div>
+                                </footer>
+                                <?php
+                                echo '<div class="card-panel hoverable"><div class="carousel center">';
+                                $files = glob(ROOT_PATH . $row->album . '*');
+                                $gallery = array();
+                                $index = 0;
+                                $token = uniqid();
+                                foreach ($files as $file) {
+                                    $value = HTTP_PATH . $row->album . basename($file);
+                                    array_push($gallery, $value);
+                                    echo '<a class="carousel-item" onclick="galeria(' . $index . ',\'' . $token . '\');"><img src="' . HTTP_PATH . $row->album . basename($file) . '"></a>';
+                                    $index++;
+                                }
+                                echo '</div></div>
                             </div>
                             <div class="gallery-action">
                                 <a class="btn-floating btn-large waves-effect waves-light" href="#modal1"><i class="material-icons dp48">textsms</i></a>
                             </div>                   
                         </div>
                     </div>';
-    $_SESSION[$token] = $gallery;
-    $_SESSION["name" . $token] = $row->name;
-}
-?>
+                                $_SESSION[$token] = $gallery;
+                                $_SESSION["name" . $token] = $row->name;
+                            }
+                            ?>
                         </div>            
                     </div>
                 </div>
             </div>
             <div class="col s12 m3 l3">
                 <ul class="bxslider collection z-depth-5">
-<?php
-$stmt = $m->getMessages(null);
-foreach ($stmt as $row) {
-    echo '<li class="collection-item avatar">
+                    <?php
+                    $stmt = $m->getMessages(null);
+                    foreach ($stmt as $row) {
+                        echo '<li class="collection-item avatar">
                             <img src="' . HTTP_PATH . $row->nick . '" alt="" height="20px" width="20px" class="circle">                
                             <p>' . $row->name . '<br>' . $row->description . '</p>                            
                           </li>';
-}
-?>
+                    }
+                    ?>
                 </ul>
             </div>
         </div>
