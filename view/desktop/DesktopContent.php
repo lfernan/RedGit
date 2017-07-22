@@ -61,7 +61,7 @@ $m = new Managed();
     <li><a href="docs.html"><i class="material-icons">school</i>Contacto</a></li>
 </ul>
 
-<div class="row">
+<div class="row" id="contenido">
     <div class="col s9">
         <!-- Gallery -->          
         <div id="portfolio" class="section gray">
@@ -149,8 +149,8 @@ $m = new Managed();
             </div>
         </div>
     </div>
-    <div class="col s3">
-        <div id="mensajes" class="collection" style="border:none;height: 100%;">
+    <div id="colmensajes" class="col s3" style="background-color: #B71C1C">
+        <div id="mensajes" class="collection" style="border:none;">
             <ul class="bxslider">
                 <?php
                 $stmt = $m->getMessages(null);

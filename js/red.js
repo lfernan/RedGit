@@ -17,16 +17,25 @@ $(document).ready(function () {
     });
 
     $('.bxslider').bxSlider({
+        onSliderLoad: function () {
+            var contenido = $('#contenido');
+            $('#colmensajes').css("height", contenido.height() + "px");
+            $('#mensajes').css("height", contenido.height() + "px");
+            $('.bx-wrapper .bx-viewport').css("height", contenido.height() - 50 + "px");
+        },
         minSlides: 4,
-        maxSlides: 4,
+        maxSlides: 40,
         ticker: true,
         speed: 10000,
-        mode: 'vertical'
+        mode: 'vertical',
+        tickerHover: true,
+        adaptiveHeight: true
     });
 
     $('select').material_select();
     $('textarea').characterCounter();
 });
+
 
 function galeria(index, token) {
     $('<div id="overlaygallery" class="overlay"></div>').appendTo('body');
