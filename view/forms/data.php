@@ -33,11 +33,16 @@ if ($_POST) {
             $nombre = uniqid() . getExtension($_FILES["nick_picture"]["tmp_name"]);
             move_uploaded_file($_FILES["nick_picture"]["tmp_name"], $nick . $nombre);
             $user->nick = "uploads/" . $id_dir . $nombre;
-            if ($_FILES["video"]["size"] > 0) {
-                mkdir($nick . "video");
-                $video = $nick . "video/" . $_FILES["video"]["name"];
-                $user->video = "uploads/" . $id_dir . "video/" . $_FILES["video"]["name"];
-                move_uploaded_file($_FILES["video"]["tmp_name"], $video);
+            if ($_FILES['video']['error'] == 0 && $_FILES["video"]["size"] > 0) {
+                if ($_FILES["video"]["type"] == "video/mpeg" || 
+                    $_FILES["video"]["type"] == "video/x-msvideo" ||
+                    $_FILES["video"]["type"] == "video/3gpp" ||
+                    $_FILES["video"]["type"] == "video/mp4") {
+                    mkdir($nick . "video");
+                    $video = $nick . "video/" . $_FILES["video"]["name"];
+                    $user->video = "uploads/" . $id_dir . "video/" . $_FILES["video"]["name"];
+                    move_uploaded_file($_FILES["video"]["tmp_name"], $video);
+                }
             }
         }
 
@@ -75,7 +80,7 @@ if ($_POST) {
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">account_circle</i>
-                    <input  id="name" name="name" type="text" class="validate" required="true">
+                    <?php echo '<input  id="name" value="' . $_SESSION['user']->name . '" name="name" type="text" class="validate" required="true">'; ?>
                     <label for="name">Nombre</label>
                 </div>
                 <div class="input-field col s6">

@@ -109,6 +109,9 @@ $m = new Managed();
                         echo '<li><a class="grey-text text-lighten-3" href="#!">Medidas '.$row->measures.'</a></li>
                                          <li><a class="grey-text text-lighten-3" href="#!">Edad '.$row->age.'</a></li>
                                          <li><a class="grey-text text-lighten-3" href="#!">Fuma '.$row->smoking. '</a></li>
+                                         <li><a class="grey-text text-lighten-3" href="#!">Telefono '.$row->public_phone. '</a></li>
+                                         <li><a class="grey-text text-lighten-3" href="#!">Ubicacion '.$row->location. '</a></li>
+                                             <li><a class="grey-text text-lighten-3" href="#!">Atencion '.$row->schedules. '</a></li>
                                     </ul>
                                     </div>
                                   </div>
@@ -147,15 +150,15 @@ $m = new Managed();
         </div>
     </div>
     <div class="col s3">
-        <div id="mensajes" class="collection" style="border:none;">
+        <div id="mensajes" class="collection" style="border:none;height: 100%;">
             <ul class="bxslider">
                 <?php
                 $stmt = $m->getMessages(null);
                 foreach ($stmt as $row) {
                     echo '<li class="collection-item avatar">
-                <img src="'.HTTP_PATH.$row->nick.'" alt="" height="20px" width="20px" class="circle">                
-                <p>' . $row->name . '<br>' . $row->description . '</p>
-            </li>';
+                            <img src="'.HTTP_PATH.$row->nick.'" alt="" height="20px" width="20px" class="circle">                
+                            <p>' . $row->name . '<br>' . $row->description . '</p>
+                          </li>';
                 }
                 ?>
             </ul>
